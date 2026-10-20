@@ -11,7 +11,7 @@ import sys
 import uuid
 import re
 import torch
-from datetime import datetime
+from datetime import datetime, timedelta
 from io import BytesIO
 import hashlib
 
@@ -750,72 +750,93 @@ def render():
                 status(run, 'Failed', error=str(exc))
                 st.error(str(exc))
     with tabs[2]:
-        st.button('Refresh results')
         history = sorted((p for p in runs.glob('*') if (p / 'config.json').is_file()), reverse=True)
-        if history:
-            run = st.selectbox('Analysis run', history, format_func=lambda p: p.name)
-            cfg = json.loads((run / 'config.json').read_text())
-            state = json.loads((run / 'status.json').read_text())
-            st.write('Datasets:', ', '.join(cfg['files']))
-            st.write('Status:', state['state'])
-            if state['state'] not in ('Complete', 'Failed') and (run / 'pid').exists():
-                try:
-                    os.kill(int((run / 'pid').read_text()), 0)
-                except ProcessLookupError:
-                    st.error('Worker stopped before completion. Inspect the log and start a new run.')
-            if 'error' in state:
-                st.error(state['error'])
-            cols = st.columns(3)
-            for col, key, label in zip(cols, ['total_calls', 'billing_calls', 'tagged_calls'], ['Selected calls', 'Billing/Payments calls', 'Tagged calls']):
-                col.metric(label, state.get(key, '—'))
-            if (run / 'pipeline.log').exists():
-                with st.expander('Processing log'):
-                    with (run / 'pipeline.log').open('rb') as log:
-                        log.seek(max(0, (run / 'pipeline.log').stat().st_size - 20000))
-                        log_text = log.read().decode(errors='replace')
-                    progress, progress_text = reported_progress(log_text, state)
-                    if progress is None:
-                        st.info(progress_text)
-                    else:
-                        st.progress(progress, text=progress_text)
-                    st.code(log_text)
-            result = run / 'output' / 'billing_tagged_full.parquet'
-            if state['state'] == 'Complete' and result.exists():
-                @st.cache_data(show_spinner=False)
-                def read_result(path, stamp):
-                    return pd.read_parquet(path)
-                df = read_result(str(result), result.stat().st_mtime_ns)
-                
-                view = df
-                
-                
-                
-                
-                def excel_bytes(frame):
-                    buffer = BytesIO()
-                    with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
-                        frame.to_excel(
-                            writer, sheet_name='Tagged calls', index=False
-                        )
-                    return buffer.getvalue()
-
-                excel_mime = (
-                    'application/vnd.openxmlformats-officedocument.'
-                    'spreadsheetml.sheet'
-                )
-
-                try:
-                    st.download_button(
-                        label='Download full results (.xlsx)',
-                        data=excel_bytes(df),
-                        file_name='billing_tagged_full.xlsx',
-                        mime=excel_mime,
-                    )
-                except Exception as exc:
-                    st.error(f'Could not create Excel download: {exc}') 
-                show_pivot_verification(st, pd, run, cfg, df)                                                   
-        else:
+        if not history:
             st.info('Run an analysis to see results here.')
+        else:
+            controls = st.columns([3, 1, 1])
+            with controls[0]:
+                run = st.selectbox('Analysis run', history, format_func=lambda p: p.name)
+            with controls[1]:
+                auto_refresh = st.toggle('Auto-refresh', value=True, help='Refresh status and logs every 2 seconds while a run is active')
+            with controls[2]:
+                manual_refresh = st.button('Refresh now', use_container_width=True)
+
+            refresh_every = timedelta(seconds=2) if auto_refresh else None
+
+            @st.fragment(run_every=refresh_every)
+            def live_results():
+                cfg = json.loads((run / 'config.json').read_text())
+                state = json.loads((run / 'status.json').read_text())
+                running = state['state'] not in ('Complete', 'Failed')
+
+                st.write('Datasets:', ', '.join(cfg['files']))
+                st.write('Status:', state['state'])
+                if auto_refresh and running:
+                    st.caption('Auto-refreshing every 2s…')
+                elif manual_refresh:
+                    st.caption(f'Updated {datetime.now().strftime("%H:%M:%S")}')
+
+                if running and (run / 'pid').exists():
+                    try:
+                        os.kill(int((run / 'pid').read_text()), 0)
+                    except ProcessLookupError:
+                        st.error('Worker stopped before completion. Inspect the log and start a new run.')
+                if 'error' in state:
+                    st.error(state['error'])
+
+                cols = st.columns(3)
+                for col, key, label in zip(
+                    cols,
+                    ['total_calls', 'billing_calls', 'tagged_calls'],
+                    ['Selected calls', 'Billing/Payments calls', 'Tagged calls'],
+                ):
+                    col.metric(label, state.get(key, '—'))
+
+                if (run / 'pipeline.log').exists():
+                    with st.expander('Processing log', expanded=running):
+                        with (run / 'pipeline.log').open('rb') as log:
+                            log.seek(max(0, (run / 'pipeline.log').stat().st_size - 50000))
+                            log_text = log.read().decode(errors='replace')
+                        progress, progress_text = reported_progress(log_text, state)
+                        if progress is None:
+                            st.info(progress_text)
+                        else:
+                            st.progress(progress, text=progress_text)
+                        st.code(log_text)
+
+                result = run / 'output' / 'billing_tagged_full.parquet'
+                if state['state'] == 'Complete' and result.exists():
+                    @st.cache_data(show_spinner=False)
+                    def read_result(path, stamp):
+                        return pd.read_parquet(path)
+
+                    df = read_result(str(result), result.stat().st_mtime_ns)
+
+                    def excel_bytes(frame):
+                        buffer = BytesIO()
+                        with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+                            frame.to_excel(
+                                writer, sheet_name='Tagged calls', index=False
+                            )
+                        return buffer.getvalue()
+
+                    excel_mime = (
+                        'application/vnd.openxmlformats-officedocument.'
+                        'spreadsheetml.sheet'
+                    )
+                    try:
+                        st.download_button(
+                            label='Download full results (.xlsx)',
+                            data=excel_bytes(df),
+                            file_name='billing_tagged_full.xlsx',
+                            mime=excel_mime,
+                        )
+                    except Exception as exc:
+                        st.error(f'Could not create Excel download: {exc}')
+                    show_pivot_verification(st, pd, run, cfg, df)
+
+            live_results()
 
 
 if __name__ == '__main__':
