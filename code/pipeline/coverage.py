@@ -80,9 +80,8 @@ def embed(
     if not texts:
         return np.zeros((0, 1024), dtype=np.float32)
     model = get_embedder(device)
-    # CPU VMs: moderate batches; GPU can take larger ones.
     if batch_size is None:
-        batch_size = 32 if (device or _model_device or "cpu") == "cpu" else 128
+        batch_size = 1000
     if show_progress_bar is None:
         show_progress_bar = len(texts) >= 32
     return model.encode(

@@ -24,6 +24,7 @@ x-ui-common: &ui-common
     - ./code/output:/app/code/output
     - ./brightspeed_ui/app.py:/app/brightspeed_ui/app.py
     - ./brightspeed_ui/.streamlit:/app/brightspeed_ui/.streamlit
+    - ./brightspeed_ui/docs:/app/brightspeed_ui/docs
     - ./brightspeed_ui/ui_runs:/app/brightspeed_ui/ui_runs
     - hf_models:/models
   restart: unless-stopped

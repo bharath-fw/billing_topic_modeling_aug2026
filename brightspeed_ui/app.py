@@ -632,7 +632,22 @@ def render():
     st.set_page_config(page_title='Brightspeed Call Analytics', page_icon='📞', layout='wide', menu_items={'Get Help': None, 'Report a bug': None, 'About': None})
     # Hide the Streamlit menu containing Print. Browser Ctrl+P is unaffected.
     st.markdown('<style>#MainMenu {visibility: hidden;}</style>', unsafe_allow_html=True)
-    st.title('Brightspeed Call Analytics')
+    guide_pdf = HERE / 'docs' / 'Brightspeed_Call_Analytics_Usage_Guide.pdf'
+    title_col, guide_col = st.columns([4, 1])
+    with title_col:
+        st.title('Brightspeed Call Analytics')
+    with guide_col:
+        if guide_pdf.is_file():
+            st.download_button(
+                label='Download usage guide (PDF)',
+                data=guide_pdf.read_bytes(),
+                file_name=guide_pdf.name,
+                mime='application/pdf',
+                use_container_width=True,
+                help='Short how-to for uploads, BP/DNI filters, analyze, and results',
+            )
+        else:
+            st.caption('Usage guide PDF not found')
     root = resolve_project_root()
     scripts = root / 'code' / 'pipeline'
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -644,29 +659,47 @@ def render():
     )
     tabs = st.tabs(['Analyze calls', 'Filters', 'Results'])
 
-    with tabs[1]:
-        
-        include_billing = st.checkbox('Billing calls', value=True)
-        include_payment = st.checkbox('Payment calls', value=True)
-        st.caption('Column values match exactly, ignoring case and surrounding spaces. Enter one value per line or separate values with commas.')
-        filters = {}
-        empty_filters = []
-        for column in FILTER_COLUMNS:
-            if st.checkbox(column, key=f'enable_filter_{column}'):
-                text = st.text_area(
-                    f'Values for {column}',
-                    key=f'filter_values_{column}',
-                )
-                values = list(dict.fromkeys(
-                    v.strip()
-                    for v in re.split(r'[,\n]', text)
-                    if v.strip()
-                ))
-                filters[column] = values
-                if not values:
-                    empty_filters.append(column)
-    
+    filters = {}
+    empty_filters = []
+    include_billing = True
+    include_payment = True
+
     with tabs[0]:
+        st.subheader('Call scope')
+        bp_cols = st.columns(2)
+        with bp_cols[0]:
+            include_billing = st.toggle(
+                'Billing calls',
+                value=True,
+                help='Keep rows whose Primary Call Reason is Billing',
+            )
+        with bp_cols[1]:
+            include_payment = st.toggle(
+                'Payment calls',
+                value=True,
+                help='Keep rows whose Primary Call Reason is Payments',
+            )
+        filter_dni = st.toggle(
+            'Filter by DNI',
+            value=False,
+            help='When enabled, only rows whose DNIs match the values below are kept',
+        )
+        if filter_dni:
+            dni_text = st.text_area(
+                'DNI values',
+                placeholder='One value per line, or comma-separated',
+                key='dni_filter_values',
+            )
+            dni_values = list(dict.fromkeys(
+                v.strip()
+                for v in re.split(r'[,\n]', dni_text)
+                if v.strip()
+            ))
+            filters['DNIs'] = dni_values
+            if not dni_values:
+                empty_filters.append('DNIs')
+        st.divider()
+
         uploaded = st.file_uploader(
             'Drag and drop new monthly Excel files here',
             type=['xlsx'],
@@ -749,7 +782,7 @@ def render():
                     tmp.unlink(missing_ok=True)
     files = sorted(p.name for p in datasets.glob('*.xlsx') if not p.name.startswith(('~$', '.')))
     with tabs[0]:
-        st.info('Choose call types and column filters in the Filters tab before starting analysis.')
+        st.info('Use the Billing / Payments and DNI toggles above. Optional advanced column filters are on the Filters tab.')
         mode = st.radio('Dataset scope', ['Monthly', 'Custom selection', 'Full dataset'], horizontal=True)
         if mode == 'Monthly':
             chosen = st.selectbox('Monthly file', files) if files else None
@@ -796,9 +829,9 @@ def render():
 
         issues = []
         if not include_billing and not include_payment:
-            issues.append('Select Billing calls or Payment calls in Filters.')
+            issues.append('Enable Billing calls and/or Payment calls.')
         if empty_filters:
-            issues.append('Enter filter values or uncheck: ' + ', '.join(empty_filters))
+            issues.append('Enter filter values or turn off: ' + ', '.join(empty_filters))
         for name in ['ingest', 'billing_narrow', 'coverage', 'autotag']:
             try:
                 script_path(scripts, name)
@@ -840,6 +873,30 @@ def render():
             except Exception as exc:
                 status(run, 'Failed', error=str(exc))
                 st.error(str(exc))
+
+    with tabs[1]:
+        st.caption(
+            'Optional advanced filters. Column values match exactly, ignoring case '
+            'and surrounding spaces. Enter one value per line or separate with commas. '
+            'Billing / Payments and DNI toggles live on the Analyze calls tab.'
+        )
+        for column in FILTER_COLUMNS:
+            if column == 'DNIs':
+                continue  # dedicated toggle on Analyze calls
+            if st.checkbox(column, key=f'enable_filter_{column}'):
+                text = st.text_area(
+                    f'Values for {column}',
+                    key=f'filter_values_{column}',
+                )
+                values = list(dict.fromkeys(
+                    v.strip()
+                    for v in re.split(r'[,\n]', text)
+                    if v.strip()
+                ))
+                filters[column] = values
+                if not values:
+                    empty_filters.append(column)
+
     with tabs[2]:
         history = sorted((p for p in runs.glob('*') if (p / 'config.json').is_file()), reverse=True)
         if not history:
