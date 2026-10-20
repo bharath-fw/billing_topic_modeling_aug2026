@@ -100,6 +100,43 @@ def script_path(folder, name):
     raise FileNotFoundError(f'Missing {name}.py in {folder}')
 
 
+def safe_dataset_path(datasets_dir, filename):
+    """Resolve a dataset file that must stay inside datasets_dir."""
+    name = Path(filename).name
+    if name != filename or name.startswith('.') or name.startswith('~$'):
+        raise ValueError(f'Invalid dataset name: {filename!r}')
+    path = (datasets_dir / name).resolve()
+    if path.parent != datasets_dir.resolve():
+        raise ValueError(f'Invalid dataset path: {filename!r}')
+    return path
+
+
+def safe_run_path(runs_dir, run_dir):
+    """Resolve a run folder that must stay inside runs_dir."""
+    path = Path(run_dir).resolve()
+    if path.parent != runs_dir.resolve() or not path.is_dir():
+        raise ValueError(f'Invalid run path: {run_dir}')
+    return path
+
+
+def processed_dataset_names(runs_dir):
+    """Dataset filenames referenced by completed analysis runs."""
+    names = set()
+    for run in runs_dir.glob('*'):
+        cfg_path = run / 'config.json'
+        status_path = run / 'status.json'
+        if not cfg_path.is_file() or not status_path.is_file():
+            continue
+        try:
+            state = json.loads(status_path.read_text()).get('state')
+            if state != 'Complete':
+                continue
+            names.update(json.loads(cfg_path.read_text()).get('files') or [])
+        except (json.JSONDecodeError, OSError, TypeError):
+            continue
+    return sorted(names)
+
+
 def load_module(path, name):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
@@ -700,12 +737,41 @@ def render():
         else:
             selected = files
         st.write(f'{len(selected)} of {len(files)} files selected')
-        
 
-                      
+        with st.expander('Remove dataset files'):
+            processed = [name for name in processed_dataset_names(runs) if name in files]
+            remove_choices = st.multiselect(
+                'Files to delete from datasets/',
+                options=files,
+                default=processed,
+                help='Defaults to files already used in a completed analysis run. This deletes the Excel files from disk.',
+            )
+            confirm_delete_files = st.checkbox(
+                'I understand these Excel files will be permanently deleted',
+                key='confirm_delete_datasets',
+            )
+            if st.button(
+                'Delete selected dataset files',
+                type='secondary',
+                disabled=not remove_choices or not confirm_delete_files,
+            ):
+                deleted, errors = [], []
+                for name in remove_choices:
+                    try:
+                        path = safe_dataset_path(datasets, name)
+                        if path.is_file():
+                            path.unlink()
+                            deleted.append(name)
+                    except Exception as exc:
+                        errors.append(f'{name}: {exc}')
+                if deleted:
+                    st.success('Deleted: ' + ', '.join(deleted))
+                    st.rerun()
+                for message in errors:
+                    st.error(message)
+
         limit = 0
-        
-        
+
         issues = []
         if not include_billing and not include_payment:
             issues.append('Select Billing calls or Payment calls in Filters.')
@@ -761,6 +827,59 @@ def render():
                 auto_refresh = st.toggle('Auto-refresh', value=True, help='Refresh status and logs every 2 seconds while a run is active')
             with controls[2]:
                 manual_refresh = st.button('Refresh now', use_container_width=True)
+
+            with st.expander('Remove processed runs'):
+                finished = []
+                for path in history:
+                    try:
+                        state_name = json.loads((path / 'status.json').read_text()).get('state')
+                    except (json.JSONDecodeError, OSError):
+                        state_name = 'Unknown'
+                    if state_name in ('Complete', 'Failed'):
+                        finished.append(path)
+                remove_runs = st.multiselect(
+                    'Runs to delete',
+                    options=finished,
+                    default=finished,
+                    format_func=lambda p: p.name,
+                    help='Deletes run folders under ui_runs/ (logs, tagged parquet, status). Active runs are excluded.',
+                )
+                confirm_delete_runs = st.checkbox(
+                    'I understand these analysis runs will be permanently deleted',
+                    key='confirm_delete_runs',
+                )
+                col_a, col_b = st.columns(2)
+                with col_a:
+                    delete_selected_run = st.button(
+                        'Delete selected runs',
+                        disabled=not remove_runs or not confirm_delete_runs,
+                    )
+                with col_b:
+                    delete_current = st.button(
+                        'Delete current run',
+                        disabled=not confirm_delete_runs,
+                        help='Deletes only the run chosen in the dropdown above (if it is not still running).',
+                    )
+                if delete_selected_run or delete_current:
+                    targets = list(remove_runs) if delete_selected_run else []
+                    if delete_current:
+                        targets.append(run)
+                    deleted, errors = [], []
+                    for target in dict.fromkeys(targets):
+                        try:
+                            path = safe_run_path(runs, target)
+                            state_name = json.loads((path / 'status.json').read_text()).get('state')
+                            if state_name not in ('Complete', 'Failed'):
+                                raise ValueError(f'Run is still active ({state_name})')
+                            shutil.rmtree(path)
+                            deleted.append(path.name)
+                        except Exception as exc:
+                            errors.append(f'{Path(target).name}: {exc}')
+                    if deleted:
+                        st.success('Deleted runs: ' + ', '.join(deleted))
+                        st.rerun()
+                    for message in errors:
+                        st.error(message)
 
             refresh_every = timedelta(seconds=2) if auto_refresh else None
 
