@@ -1,0 +1,1546 @@
+{
+  "meta": {
+    "taxonomy_version": "2.0 comprehensive",
+    "macro_categories_excluding_fallback": 10,
+    "subcategories": 104,
+    "centroids_per_subcategory": 10,
+    "design": "macro categories with comprehensive Brightspeed billing leaves",
+    "canonical_tag_format": "UPPER_SNAKE_CASE with stable macro prefix",
+    "version": "2.1 comprehensive leaf taxonomy with canonical tags"
+  },
+  "categories": [
+    {
+      "name": "Bill Understanding and Balance",
+      "evidence_volume": 57076,
+      "subcategories": [
+        {
+          "name": "General billing question",
+          "definition": "General help understanding billing when no more specific issue is stated",
+          "keywords": [
+            "billing question",
+            "billing inquiry",
+            "help with bill",
+            "understand bill",
+            "question about bill"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "BILL_GENERAL_BILLING_QUESTION",
+          "mapped_evidence_count": 17935
+        },
+        {
+          "name": "Current account balance",
+          "definition": "Customer wants the current amount owed on the account",
+          "keywords": [
+            "current balance",
+            "account balance",
+            "amount owed",
+            "balance inquiry",
+            "what do i owe"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "BILL_CURRENT_ACCOUNT_BALANCE",
+          "mapped_evidence_count": 23855
+        },
+        {
+          "name": "Payment due date",
+          "definition": "Customer wants to know when payment is due",
+          "keywords": [
+            "due date",
+            "payment due",
+            "when is bill due",
+            "bill due date",
+            "next due date"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "BILL_PAYMENT_DUE_DATE",
+          "mapped_evidence_count": 1287
+        },
+        {
+          "name": "Bill amount or line item explanation",
+          "definition": "Customer wants an explanation of an amount, line item, or calculation without clearly alleging an error",
+          "keywords": [
+            "line item",
+            "charge explanation",
+            "bill breakdown",
+            "amount clarification",
+            "statement detail"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION",
+          "mapped_evidence_count": 2672
+        },
+        {
+          "name": "First bill explanation",
+          "definition": "Customer needs help understanding the first bill after new service or activation",
+          "keywords": [
+            "first bill",
+            "new service bill",
+            "initial bill",
+            "first statement",
+            "starting bill"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "BILL_FIRST_BILL_EXPLANATION",
+          "mapped_evidence_count": 1
+        },
+        {
+          "name": "Prorated bill explanation",
+          "definition": "Customer asks about partial month, prorated, or midcycle billing",
+          "keywords": [
+            "prorated",
+            "partial month",
+            "proration",
+            "midcycle charge",
+            "partial billing period"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "BILL_PRORATED_BILL_EXPLANATION",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Billing cycle or statement date",
+          "definition": "Customer asks when the billing period starts, ends, or when the statement generates",
+          "keywords": [
+            "billing cycle",
+            "statement date",
+            "bill cycle",
+            "cycle date",
+            "billing period"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "BILL_BILLING_CYCLE_STATEMENT_DATE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Upcoming or estimated bill amount",
+          "definition": "Customer asks what a future or next bill is expected to be",
+          "keywords": [
+            "next bill",
+            "upcoming bill",
+            "estimated bill",
+            "future bill",
+            "what will my bill be"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "BILL_UPCOMING_ESTIMATED_BILL_AMOUNT",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 45750
+    },
+    {
+      "name": "Rates Discounts and Recurring Charges",
+      "evidence_volume": 9302,
+      "subcategories": [
+        {
+          "name": "Bill higher than expected",
+          "definition": "Customer reports a higher total bill but has not isolated one specific erroneous charge",
+          "keywords": [
+            "bill higher",
+            "higher than expected",
+            "bill went up",
+            "unexpected bill amount",
+            "monthly bill increased"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "RATE_BILL_HIGHER_THAN_EXPECTED",
+          "mapped_evidence_count": 4245
+        },
+        {
+          "name": "Price or rate increase",
+          "definition": "Customer asks about an increase in recurring service price or plan rate",
+          "keywords": [
+            "price increase",
+            "rate increase",
+            "monthly rate changed",
+            "plan price increased",
+            "cost increase"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "RATE_PRICE_RATE_INCREASE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Promotional rate expired",
+          "definition": "Customer says a promotional or introductory rate ended and the bill increased",
+          "keywords": [
+            "promotion expired",
+            "promo ended",
+            "intro rate ended",
+            "discount expired",
+            "promotional price ended"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "RATE_PROMOTIONAL_RATE_EXPIRED",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Missing or incorrect discount",
+          "definition": "Customer expects a recurring discount that is absent or wrong",
+          "keywords": [
+            "discount missing",
+            "discount not applied",
+            "wrong discount",
+            "monthly discount",
+            "promotion not applied"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "RATE_MISSING_INCORRECT_DISCOUNT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Lower price or discount request",
+          "definition": "Customer wants a lower monthly price, discount, or more affordable plan",
+          "keywords": [
+            "lower bill",
+            "lower price",
+            "discount request",
+            "reduce monthly cost",
+            "cheaper plan"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "RATE_LOWER_PRICE_DISCOUNT_REQUEST",
+          "mapped_evidence_count": 15
+        },
+        {
+          "name": "Plan or package price inquiry",
+          "definition": "Customer asks what a plan, package, or service tier costs",
+          "keywords": [
+            "plan price",
+            "package price",
+            "monthly price",
+            "pricing inquiry",
+            "service cost"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "RATE_PLAN_PACKAGE_PRICE_INQUIRY",
+          "mapped_evidence_count": 7
+        },
+        {
+          "name": "Recurring charge inquiry",
+          "definition": "Customer asks about a recurring monthly charge without clearly disputing it",
+          "keywords": [
+            "recurring charge",
+            "monthly charge",
+            "repeating fee",
+            "ongoing charge",
+            "recurring fee"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "RATE_RECURRING_CHARGE_INQUIRY",
+          "mapped_evidence_count": 3070
+        },
+        {
+          "name": "Add on or feature recurring charge",
+          "definition": "Customer asks about a recurring charge for an added feature, service, or optional product",
+          "keywords": [
+            "add on charge",
+            "feature charge",
+            "optional service charge",
+            "monthly add on",
+            "extra service fee"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "RATE_ADD_FEATURE_RECURRING_CHARGE",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 7337
+    },
+    {
+      "name": "Billing Errors Fees and Taxes",
+      "evidence_volume": 30110,
+      "subcategories": [
+        {
+          "name": "Incorrect or unexpected charge",
+          "definition": "Customer states that a billed charge is wrong or should not be present",
+          "keywords": [
+            "incorrect charge",
+            "unexpected charge",
+            "wrong charge",
+            "billing error",
+            "charge dispute"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ERR_INCORRECT_UNEXPECTED_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Duplicate charge",
+          "definition": "Customer says the same charge appears more than once",
+          "keywords": [
+            "duplicate charge",
+            "charged twice",
+            "double charge",
+            "duplicate billing",
+            "repeated charge"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ERR_DUPLICATE_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Unauthorized billing charge",
+          "definition": "Customer says a charge was not authorized or was not requested",
+          "keywords": [
+            "unauthorized charge",
+            "did not authorize",
+            "did not order",
+            "unrecognized charge",
+            "not requested"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ERR_UNAUTHORIZED_BILLING_CHARGE",
+          "mapped_evidence_count": 68
+        },
+        {
+          "name": "Billing after cancellation or disconnect",
+          "definition": "Customer disputes charges continuing after cancellation, disconnect, closure, or removal",
+          "keywords": [
+            "billed after cancellation",
+            "billed after disconnect",
+            "charges after cancellation",
+            "closed account billed",
+            "service ended bill"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ERR_BILLING_AFTER_CANCELLATION_DISCONNECT",
+          "mapped_evidence_count": 2000
+        },
+        {
+          "name": "Late fee dispute",
+          "definition": "Customer says a late fee was assessed incorrectly",
+          "keywords": [
+            "late fee dispute",
+            "incorrect late fee",
+            "late payment fee error",
+            "paid on time late fee",
+            "late fee wrong"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ERR_LATE_FEE_DISPUTE",
+          "mapped_evidence_count": 2424
+        },
+        {
+          "name": "Late fee waiver or avoidance",
+          "definition": "Customer asks to waive, remove, or avoid a plausible late fee",
+          "keywords": [
+            "late fee waiver",
+            "avoid late fee",
+            "waive late fee",
+            "remove late fee",
+            "late fee forgiveness"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ERR_LATE_FEE_WAIVER_AVOIDANCE",
+          "mapped_evidence_count": 7
+        },
+        {
+          "name": "Returned payment or insufficient funds fee",
+          "definition": "Customer asks about a fee caused by a returned or insufficient funds payment",
+          "keywords": [
+            "returned payment fee",
+            "nsf fee",
+            "insufficient funds fee",
+            "bounced payment fee",
+            "return fee"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ERR_RETURNED_PAYMENT_INSUFFICIENT_FUNDS_FEE",
+          "mapped_evidence_count": 2
+        },
+        {
+          "name": "Reconnection or restoration fee",
+          "definition": "Customer asks about a fee charged to reconnect or restore service",
+          "keywords": [
+            "reconnection fee",
+            "restoration fee",
+            "reconnect charge",
+            "reactivation fee",
+            "restore service fee"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ERR_RECONNECTION_RESTORATION_FEE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Tax or regulatory fee inquiry",
+          "definition": "Customer asks about taxes, government fees, or regulatory charges",
+          "keywords": [
+            "tax inquiry",
+            "regulatory fee",
+            "taxes and fees",
+            "government fee",
+            "tax charge"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ERR_TAX_REGULATORY_FEE_INQUIRY",
+          "mapped_evidence_count": 627
+        },
+        {
+          "name": "Tax recovery surcharge",
+          "definition": "Customer specifically asks about or disputes the tax recovery surcharge",
+          "keywords": [
+            "tax recovery surcharge",
+            "recovery surcharge",
+            "tax surcharge",
+            "surcharge charge",
+            "surcharge increase"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ERR_TAX_RECOVERY_SURCHARGE",
+          "mapped_evidence_count": 1967
+        },
+        {
+          "name": "Incorrect tax or fee amount",
+          "definition": "Customer believes a tax, surcharge, or mandatory fee amount is wrong",
+          "keywords": [
+            "wrong tax",
+            "incorrect tax",
+            "fee amount wrong",
+            "tax calculation",
+            "tax dispute"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ERR_INCORRECT_TAX_FEE_AMOUNT",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 7095
+    },
+    {
+      "name": "Payments and Payment Posting",
+      "evidence_volume": 4162,
+      "subcategories": [
+        {
+          "name": "Make a one time payment",
+          "definition": "Customer wants to make a single payment outside AutoPay",
+          "keywords": [
+            "make payment",
+            "one time payment",
+            "pay bill",
+            "make bill payment",
+            "payment now"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_MAKE_ONE_TIME_PAYMENT",
+          "mapped_evidence_count": 179
+        },
+        {
+          "name": "General payment question",
+          "definition": "Customer has a payment question without a more specific payment issue",
+          "keywords": [
+            "payment question",
+            "payment inquiry",
+            "how to pay",
+            "payment help",
+            "bill payment question"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_GENERAL_PAYMENT_QUESTION",
+          "mapped_evidence_count": 1458
+        },
+        {
+          "name": "Online or app payment issue",
+          "definition": "Customer cannot complete a payment through the website, portal, or app",
+          "keywords": [
+            "cannot pay online",
+            "online payment issue",
+            "payment website error",
+            "app payment issue",
+            "online payment failed"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_ONLINE_APP_PAYMENT_ISSUE",
+          "mapped_evidence_count": 495
+        },
+        {
+          "name": "Payment declined or failed",
+          "definition": "A non AutoPay payment attempt was declined or failed",
+          "keywords": [
+            "payment declined",
+            "payment failed",
+            "card declined",
+            "payment would not process",
+            "transaction failed"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PAY_PAYMENT_DECLINED_FAILED",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Payment not posted",
+          "definition": "Customer says a completed payment is missing from the account or balance",
+          "keywords": [
+            "payment not posted",
+            "payment not reflected",
+            "missing payment",
+            "payment not showing",
+            "paid but balance unchanged"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_PAYMENT_NOT_POSTED",
+          "mapped_evidence_count": 1658
+        },
+        {
+          "name": "Payment applied to wrong account",
+          "definition": "Customer says a completed payment was credited to the wrong account",
+          "keywords": [
+            "wrong account payment",
+            "misapplied payment",
+            "payment applied wrong",
+            "credited wrong account",
+            "misposted payment"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_PAYMENT_APPLIED_WRONG_ACCOUNT",
+          "mapped_evidence_count": 10
+        },
+        {
+          "name": "Payment confirmation or receipt",
+          "definition": "Customer wants confirmation that a payment was received or a receipt or confirmation number",
+          "keywords": [
+            "payment confirmation",
+            "confirm payment",
+            "payment receipt",
+            "confirmation number",
+            "verify payment"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_PAYMENT_CONFIRMATION_RECEIPT",
+          "mapped_evidence_count": 59
+        },
+        {
+          "name": "Payment reversed or returned",
+          "definition": "Customer asks why a previously completed payment was reversed, returned, or removed",
+          "keywords": [
+            "payment reversed",
+            "payment returned",
+            "reversal",
+            "returned payment",
+            "payment taken back"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PAY_PAYMENT_REVERSED_RETURNED",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Duplicate payment",
+          "definition": "Customer reports that the same payment was made or withdrawn more than once",
+          "keywords": [
+            "duplicate payment",
+            "paid twice",
+            "double payment",
+            "two payments",
+            "duplicate withdrawal"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PAY_DUPLICATE_PAYMENT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Partial payment",
+          "definition": "Customer asks whether or how to make a payment for less than the total amount due",
+          "keywords": [
+            "partial payment",
+            "pay part",
+            "split payment",
+            "less than full balance",
+            "part of bill"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PAY_PARTIAL_PAYMENT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Check or mailed payment status",
+          "definition": "Customer asks about a check, money order, or mailed payment that is pending or missing",
+          "keywords": [
+            "check payment",
+            "mailed payment",
+            "money order",
+            "payment by mail",
+            "check not posted"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_CHECK_MAILED_PAYMENT_STATUS",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Payment history or transaction details",
+          "definition": "Customer wants details about prior payments, dates, amounts, or methods",
+          "keywords": [
+            "payment history",
+            "payment details",
+            "past payments",
+            "transaction details",
+            "payment record"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PAY_PAYMENT_HISTORY_TRANSACTION_DETAILS",
+          "mapped_evidence_count": 63
+        }
+      ],
+      "mapped_evidence_count": 3922
+    },
+    {
+      "name": "AutoPay and Payment Methods",
+      "evidence_volume": 2054,
+      "subcategories": [
+        {
+          "name": "AutoPay general inquiry",
+          "definition": "Customer asks a general question about automatic payments",
+          "keywords": [
+            "autopay inquiry",
+            "automatic payment question",
+            "autopay help",
+            "scheduled payment",
+            "automatic billing"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_AUTOPAY_GENERAL_INQUIRY",
+          "mapped_evidence_count": 1186
+        },
+        {
+          "name": "Enroll in AutoPay",
+          "definition": "Customer wants to start automatic payments",
+          "keywords": [
+            "enroll autopay",
+            "set up autopay",
+            "start autopay",
+            "automatic payment enrollment",
+            "sign up autopay"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_ENROLL_IN_AUTOPAY",
+          "mapped_evidence_count": 249
+        },
+        {
+          "name": "Confirm AutoPay enrollment",
+          "definition": "Customer wants to verify whether AutoPay is active",
+          "keywords": [
+            "confirm autopay",
+            "autopay status",
+            "is autopay active",
+            "verify automatic payment",
+            "enrollment confirmation"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_CONFIRM_AUTOPAY_ENROLLMENT",
+          "mapped_evidence_count": 93
+        },
+        {
+          "name": "Remove AutoPay",
+          "definition": "Customer wants to stop or disable automatic payments",
+          "keywords": [
+            "remove autopay",
+            "cancel autopay",
+            "stop automatic payment",
+            "disable autopay",
+            "unenroll autopay"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_REMOVE_AUTOPAY",
+          "mapped_evidence_count": 31
+        },
+        {
+          "name": "AutoPay payment failure",
+          "definition": "An expected automatic payment did not process",
+          "keywords": [
+            "autopay failed",
+            "automatic payment failed",
+            "autopay not processing",
+            "scheduled payment failed",
+            "autopay issue"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_AUTOPAY_PAYMENT_FAILURE",
+          "mapped_evidence_count": 127
+        },
+        {
+          "name": "AutoPay charged wrong amount",
+          "definition": "Customer says AutoPay withdrew an incorrect amount",
+          "keywords": [
+            "autopay wrong amount",
+            "automatic payment amount wrong",
+            "autopay overcharged",
+            "autopay amount",
+            "wrong draft amount"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "AUTO_AUTOPAY_CHARGED_WRONG_AMOUNT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Duplicate AutoPay withdrawal",
+          "definition": "Customer says AutoPay withdrew more than once for the same bill",
+          "keywords": [
+            "duplicate autopay",
+            "autopay twice",
+            "double automatic payment",
+            "two autopay withdrawals",
+            "duplicate draft"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "AUTO_DUPLICATE_AUTOPAY_WITHDRAWAL",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Change AutoPay payment date",
+          "definition": "Customer wants to change when an automatic payment is withdrawn",
+          "keywords": [
+            "autopay date",
+            "change draft date",
+            "automatic payment date",
+            "scheduled payment date",
+            "move autopay date"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "AUTO_CHANGE_AUTOPAY_PAYMENT_DATE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Update or replace payment method",
+          "definition": "Customer wants to add, change, or replace a card or bank account",
+          "keywords": [
+            "update payment method",
+            "change card",
+            "replace card",
+            "update credit card",
+            "payment method update"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_UPDATE_REPLACE_PAYMENT_METHOD",
+          "mapped_evidence_count": 302
+        },
+        {
+          "name": "Update AutoPay payment method",
+          "definition": "Customer specifically wants to change the card or bank account used for AutoPay",
+          "keywords": [
+            "update autopay card",
+            "change autopay method",
+            "autopay bank account",
+            "automatic payment card",
+            "autopay payment method"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_UPDATE_AUTOPAY_PAYMENT_METHOD",
+          "mapped_evidence_count": 11
+        },
+        {
+          "name": "Compromised card or bank account",
+          "definition": "Customer needs to replace a payment method because it is compromised or closed",
+          "keywords": [
+            "compromised card",
+            "stolen card",
+            "closed bank account",
+            "fraud card",
+            "replace compromised card"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "AUTO_COMPROMISED_CARD_BANK_ACCOUNT",
+          "mapped_evidence_count": 23
+        }
+      ],
+      "mapped_evidence_count": 2022
+    },
+    {
+      "name": "Payment Assistance Past Due and Collections",
+      "evidence_volume": 6385,
+      "subcategories": [
+        {
+          "name": "Payment arrangement general inquiry",
+          "definition": "Customer asks about payment plans or arrangements",
+          "keywords": [
+            "payment arrangement",
+            "payment plan",
+            "arrangement inquiry",
+            "promise to pay",
+            "payment schedule"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_PAYMENT_ARRANGEMENT_GENERAL_INQUIRY",
+          "mapped_evidence_count": 1370
+        },
+        {
+          "name": "Set up payment arrangement",
+          "definition": "Customer wants to establish a payment arrangement",
+          "keywords": [
+            "set up arrangement",
+            "start payment plan",
+            "create payment arrangement",
+            "promise to pay setup",
+            "installment arrangement"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_SET_UP_PAYMENT_ARRANGEMENT",
+          "mapped_evidence_count": 337
+        },
+        {
+          "name": "Extend due date or request more time",
+          "definition": "Customer asks for additional time to pay or a due date extension",
+          "keywords": [
+            "extend due date",
+            "more time to pay",
+            "payment extension",
+            "due date extension",
+            "extra time"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_EXTEND_DUE_DATE_REQUEST_MORE_TIME",
+          "mapped_evidence_count": 1339
+        },
+        {
+          "name": "Payment arrangement system or eligibility issue",
+          "definition": "Customer cannot create or manage an arrangement because of a system or eligibility problem",
+          "keywords": [
+            "arrangement system issue",
+            "cannot set arrangement",
+            "payment plan error",
+            "not eligible arrangement",
+            "arrangement failed"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_PAYMENT_ARRANGEMENT_SYSTEM_ELIGIBILITY_ISSUE",
+          "mapped_evidence_count": 421
+        },
+        {
+          "name": "Missed or broken payment arrangement",
+          "definition": "Customer has missed a promised payment or an existing arrangement is no longer valid",
+          "keywords": [
+            "missed arrangement",
+            "broken payment plan",
+            "arrangement default",
+            "promise to pay missed",
+            "payment plan cancelled"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "DUE_MISSED_BROKEN_PAYMENT_ARRANGEMENT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Financial hardship or payment assistance",
+          "definition": "Customer requests hardship support or billing assistance because they cannot afford the bill",
+          "keywords": [
+            "financial hardship",
+            "payment assistance",
+            "cannot afford bill",
+            "hardship program",
+            "billing assistance"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "DUE_FINANCIAL_HARDSHIP_PAYMENT_ASSISTANCE",
+          "mapped_evidence_count": 2
+        },
+        {
+          "name": "Past due balance or nonpayment",
+          "definition": "Customer is calling about an overdue or delinquent balance",
+          "keywords": [
+            "past due",
+            "overdue balance",
+            "unpaid bill",
+            "delinquent balance",
+            "nonpayment"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_PAST_DUE_BALANCE_NONPAYMENT",
+          "mapped_evidence_count": 67
+        },
+        {
+          "name": "Service suspended or disconnected for nonpayment",
+          "definition": "Customer reports service suspension or disconnect caused by unpaid billing",
+          "keywords": [
+            "service suspended",
+            "service disconnected",
+            "nonpayment suspension",
+            "past due disconnect",
+            "unpaid bill suspension"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT",
+          "mapped_evidence_count": 39
+        },
+        {
+          "name": "Restore service after payment",
+          "definition": "Customer has paid or plans to pay and wants service restored",
+          "keywords": [
+            "restore service",
+            "reconnect after payment",
+            "service restoration",
+            "reactivate service",
+            "paid restore service"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_RESTORE_SERVICE_AFTER_PAYMENT",
+          "mapped_evidence_count": 74
+        },
+        {
+          "name": "Collections notice or agency inquiry",
+          "definition": "Customer asks about debt collection activity or a collection agency",
+          "keywords": [
+            "debt collection",
+            "collections notice",
+            "collection agency",
+            "collections inquiry",
+            "debt collector"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_COLLECTIONS_NOTICE_AGENCY_INQUIRY",
+          "mapped_evidence_count": 1299
+        },
+        {
+          "name": "Credit reporting or credit score concern",
+          "definition": "Customer is concerned that billing or collections affected credit reporting",
+          "keywords": [
+            "credit score",
+            "credit report",
+            "credit reporting",
+            "credit impact",
+            "reported to credit"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "DUE_CREDIT_REPORTING_CREDIT_SCORE_CONCERN",
+          "mapped_evidence_count": 123
+        },
+        {
+          "name": "Paid debt still in collections",
+          "definition": "Customer says a debt was paid but collections or credit reporting still shows it outstanding",
+          "keywords": [
+            "paid collection still showing",
+            "paid debt collections",
+            "collection not updated",
+            "paid balance credit report",
+            "debt paid still reported"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "DUE_PAID_DEBT_STILL_IN_COLLECTIONS",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 5071
+    },
+    {
+      "name": "Credits Refunds and Adjustments",
+      "evidence_volume": 18425,
+      "subcategories": [
+        {
+          "name": "General credit request",
+          "definition": "Customer asks for a bill or account credit without a more specific reason",
+          "keywords": [
+            "credit request",
+            "bill credit",
+            "account credit",
+            "credit my bill",
+            "credit adjustment"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "CRD_GENERAL_CREDIT_REQUEST",
+          "mapped_evidence_count": 7634
+        },
+        {
+          "name": "General refund request",
+          "definition": "Customer asks for money to be returned without a more specific refund issue",
+          "keywords": [
+            "refund request",
+            "money back",
+            "refund my payment",
+            "return money",
+            "request refund"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "CRD_GENERAL_REFUND_REQUEST",
+          "mapped_evidence_count": 6443
+        },
+        {
+          "name": "Outage credit or bill adjustment",
+          "definition": "Customer requests a credit because service was unavailable or impaired",
+          "keywords": [
+            "outage credit",
+            "service outage credit",
+            "bill adjustment",
+            "outage adjustment",
+            "service interruption credit"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT",
+          "mapped_evidence_count": 4349
+        },
+        {
+          "name": "Service quality credit",
+          "definition": "Customer requests a credit for poor, slow, or unreliable service rather than a total outage",
+          "keywords": [
+            "service quality credit",
+            "slow service credit",
+            "poor service credit",
+            "unreliable service adjustment",
+            "quality adjustment"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "CRD_SERVICE_QUALITY_CREDIT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Missing credit or adjustment",
+          "definition": "Customer was promised or expects a credit that is not reflected on the account",
+          "keywords": [
+            "credit not applied",
+            "missing credit",
+            "adjustment missing",
+            "promised credit not showing",
+            "credit absent"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "CRD_MISSING_CREDIT_ADJUSTMENT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Refund not received or refund status",
+          "definition": "Customer expects a refund and wants its status because it has not arrived or posted",
+          "keywords": [
+            "refund not received",
+            "missing refund",
+            "refund status",
+            "refund pending",
+            "where is refund"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "CRD_REFUND_NOT_RECEIVED_REFUND_STATUS",
+          "mapped_evidence_count": 39
+        },
+        {
+          "name": "Refund method or timing inquiry",
+          "definition": "Customer asks how or when a refund will be issued",
+          "keywords": [
+            "refund timing",
+            "when refund",
+            "refund method",
+            "refund check",
+            "refund to card"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "CRD_REFUND_METHOD_TIMING_INQUIRY",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Overpayment refund",
+          "definition": "Customer wants a refund of money paid above the amount owed",
+          "keywords": [
+            "overpayment refund",
+            "paid too much",
+            "credit balance refund",
+            "excess payment refund",
+            "overpaid account"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "CRD_OVERPAYMENT_REFUND",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Deposit refund",
+          "definition": "Customer asks about return of a security or service deposit",
+          "keywords": [
+            "deposit refund",
+            "security deposit return",
+            "deposit status",
+            "refund deposit",
+            "service deposit"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "CRD_DEPOSIT_REFUND",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 18465
+    },
+    {
+      "name": "Billing Delivery Account and Preferences",
+      "evidence_volume": 767,
+      "subcategories": [
+        {
+          "name": "Bill copy or statement request",
+          "definition": "Customer needs a copy of a bill or statement",
+          "keywords": [
+            "bill copy",
+            "copy of bill",
+            "statement copy",
+            "send bill",
+            "billing statement"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ACCT_BILL_COPY_STATEMENT_REQUEST",
+          "mapped_evidence_count": 4023
+        },
+        {
+          "name": "Bill not received",
+          "definition": "Customer says an expected bill or statement was not received",
+          "keywords": [
+            "bill not received",
+            "statement not received",
+            "missing bill",
+            "did not get bill",
+            "no statement"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ACCT_BILL_NOT_RECEIVED",
+          "mapped_evidence_count": 534
+        },
+        {
+          "name": "Paperless billing general inquiry",
+          "definition": "Customer asks about electronic or paperless billing",
+          "keywords": [
+            "paperless billing",
+            "e bill",
+            "electronic bill",
+            "paperless inquiry",
+            "digital statement"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ACCT_PAPERLESS_BILLING_GENERAL_INQUIRY",
+          "mapped_evidence_count": 401
+        },
+        {
+          "name": "Enroll in paperless billing",
+          "definition": "Customer wants to stop paper statements and receive bills electronically",
+          "keywords": [
+            "enroll paperless",
+            "start paperless",
+            "e bill enrollment",
+            "electronic statement signup",
+            "go paperless"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ACCT_ENROLL_IN_PAPERLESS_BILLING",
+          "mapped_evidence_count": 46
+        },
+        {
+          "name": "Switch to paper billing",
+          "definition": "Customer wants printed statements instead of paperless billing",
+          "keywords": [
+            "paper billing",
+            "switch to paper",
+            "mail statement",
+            "printed bill",
+            "stop paperless"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ACCT_SWITCH_PAPER_BILLING",
+          "mapped_evidence_count": 231
+        },
+        {
+          "name": "Billing email or notification issue",
+          "definition": "Customer is not receiving billing emails or payment notifications",
+          "keywords": [
+            "billing email",
+            "notification issue",
+            "bill email missing",
+            "payment reminder",
+            "statement email"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ACCT_BILLING_EMAIL_NOTIFICATION_ISSUE",
+          "mapped_evidence_count": 295
+        },
+        {
+          "name": "Online account access or verification",
+          "definition": "Customer cannot access or verify the online account needed for billing",
+          "keywords": [
+            "online account access",
+            "login issue",
+            "account verification",
+            "cannot access account",
+            "portal issue"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION",
+          "mapped_evidence_count": 51
+        },
+        {
+          "name": "Update billing address",
+          "definition": "Customer wants to change the billing or mailing address",
+          "keywords": [
+            "billing address",
+            "update address",
+            "change mailing address",
+            "bill address",
+            "address update"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "ACCT_UPDATE_BILLING_ADDRESS",
+          "mapped_evidence_count": 37
+        },
+        {
+          "name": "Update billing contact information",
+          "definition": "Customer wants to change billing email, phone, or contact information",
+          "keywords": [
+            "billing contact",
+            "update email",
+            "update phone",
+            "billing email change",
+            "contact information"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "ACCT_UPDATE_BILLING_CONTACT_INFORMATION",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 5618
+    },
+    {
+      "name": "Promotions Rewards and Gift Cards",
+      "evidence_volume": 19164,
+      "subcategories": [
+        {
+          "name": "General reward inquiry",
+          "definition": "Customer asks a general question about a reward or incentive",
+          "keywords": [
+            "reward inquiry",
+            "reward program",
+            "reward question",
+            "promotion reward",
+            "incentive"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PROMO_GENERAL_REWARD_INQUIRY",
+          "mapped_evidence_count": 10582
+        },
+        {
+          "name": "Promotional gift card not received",
+          "definition": "Customer was promised a promotional gift card but has not received it",
+          "keywords": [
+            "gift card not received",
+            "promotional gift card missing",
+            "reward card missing",
+            "promo card not received",
+            "gift card absent"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED",
+          "mapped_evidence_count": 3471
+        },
+        {
+          "name": "Promotional gift card status",
+          "definition": "Customer asks for the status of a promotional gift card",
+          "keywords": [
+            "gift card status",
+            "check gift card",
+            "promo card status",
+            "reward card status",
+            "where is gift card"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "PROMO_PROMOTIONAL_GIFT_CARD_STATUS",
+          "mapped_evidence_count": 1054
+        },
+        {
+          "name": "Gift card amount or value inquiry",
+          "definition": "Customer asks how much a reward or promotional gift card should be worth",
+          "keywords": [
+            "gift card amount",
+            "reward amount",
+            "promo card value",
+            "gift card value",
+            "reward value"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PROMO_GIFT_CARD_AMOUNT_VALUE_INQUIRY",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Promotion or reward eligibility",
+          "definition": "Customer asks whether they qualify for a billing promotion, reward, or incentive",
+          "keywords": [
+            "promotion eligibility",
+            "reward eligibility",
+            "qualify promotion",
+            "eligible gift card",
+            "incentive eligibility"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PROMO_PROMOTION_REWARD_ELIGIBILITY",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Promotion terms or fulfillment timing",
+          "definition": "Customer asks about requirements or timing for receiving a promotion or reward",
+          "keywords": [
+            "promotion terms",
+            "reward timing",
+            "fulfillment timing",
+            "promo requirements",
+            "when reward arrives"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "PROMO_PROMOTION_TERMS_FULFILLMENT_TIMING",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 15107
+    },
+    {
+      "name": "Service Changes Equipment and Final Billing",
+      "evidence_volume": 433,
+      "subcategories": [
+        {
+          "name": "Final bill after cancellation",
+          "definition": "Customer asks about an expected closing or final bill after service ends",
+          "keywords": [
+            "final bill",
+            "closing bill",
+            "last bill",
+            "final statement",
+            "bill after cancellation"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "SVC_FINAL_BILL_AFTER_CANCELLATION",
+          "mapped_evidence_count": 1389
+        },
+        {
+          "name": "Cancel or disconnect service with billing impact",
+          "definition": "Customer wants to cancel or disconnect and is asking about charges, balance, or final billing",
+          "keywords": [
+            "cancel service billing",
+            "disconnect billing",
+            "cancellation charges",
+            "disconnect balance",
+            "stop service bill"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "SVC_CANCEL_DISCONNECT_SERVICE_WITH_BILLING_IMPACT",
+          "mapped_evidence_count": 21
+        },
+        {
+          "name": "Remove service or charge",
+          "definition": "Customer wants a billed service, feature, or associated recurring charge removed",
+          "keywords": [
+            "remove service",
+            "remove charge",
+            "drop service",
+            "stop charge",
+            "remove feature billing"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "SVC_REMOVE_SERVICE_CHARGE",
+          "mapped_evidence_count": 28
+        },
+        {
+          "name": "Vacation hold billing",
+          "definition": "Customer asks what they will be charged during a temporary vacation or seasonal service hold, or disputes billing during that hold",
+          "keywords": [
+            "vacation hold",
+            "vacation mode",
+            "seasonal hold",
+            "suspend service vacation",
+            "vacation billing"
+          ],
+          "provenance": "Observed Rare",
+          "canonical_tag": "SVC_VACATION_HOLD_BILLING",
+          "mapped_evidence_count": 2
+        },
+        {
+          "name": "Resume service after vacation hold billing",
+          "definition": "Customer asks about billing when resuming service after a temporary hold",
+          "keywords": [
+            "resume vacation hold",
+            "restart seasonal service",
+            "vacation mode resume",
+            "resume billing",
+            "reactivate after hold"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_RESUME_SERVICE_AFTER_VACATION_HOLD_BILLING",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Move or transfer service billing",
+          "definition": "Customer asks how moving service to another address affects billing, credits, deposits, or final and first bills",
+          "keywords": [
+            "move service billing",
+            "transfer service bill",
+            "new address bill",
+            "move charges",
+            "transfer balance"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_MOVE_TRANSFER_SERVICE_BILLING",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Upgrade or downgrade billing impact",
+          "definition": "Customer asks how changing speed, technology, or plan affects the bill",
+          "keywords": [
+            "upgrade billing",
+            "downgrade billing",
+            "plan change cost",
+            "speed change bill",
+            "service change price"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "SVC_UPGRADE_DOWNGRADE_BILLING_IMPACT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Add service or feature billing impact",
+          "definition": "Customer asks what adding another service or feature will do to the bill",
+          "keywords": [
+            "add service charge",
+            "new feature cost",
+            "add on billing",
+            "service addition price",
+            "extra service bill"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_ADD_SERVICE_FEATURE_BILLING_IMPACT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Change effective date or proration",
+          "definition": "Customer asks how the effective date of a service change affects prorated charges",
+          "keywords": [
+            "effective date billing",
+            "service change proration",
+            "midcycle change",
+            "prorated service change",
+            "change date charge"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_CHANGE_EFFECTIVE_DATE_PRORATION",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Closed account balance or final payment",
+          "definition": "Customer asks what remains owed or refundable after the account is closed",
+          "keywords": [
+            "closed account balance",
+            "final payment",
+            "closed account amount",
+            "remaining balance closed account",
+            "account closure balance"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_CLOSED_ACCOUNT_BALANCE_FINAL_PAYMENT",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Modem or router rental fee",
+          "definition": "Customer asks about recurring rental charges for a modem, router, gateway, or similar equipment",
+          "keywords": [
+            "modem rental",
+            "router rental",
+            "equipment rental",
+            "gateway fee",
+            "monthly equipment fee"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "SVC_MODEM_ROUTER_RENTAL_FEE",
+          "mapped_evidence_count": 2
+        },
+        {
+          "name": "Equipment purchase or ownership charge",
+          "definition": "Customer asks about buying equipment, ownership, or a one time equipment charge",
+          "keywords": [
+            "modem purchase",
+            "equipment ownership",
+            "buy router",
+            "equipment charge",
+            "device purchase"
+          ],
+          "provenance": "Observed",
+          "canonical_tag": "SVC_EQUIPMENT_PURCHASE_OWNERSHIP_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Equipment return or nonreturn charge",
+          "definition": "Customer asks about a charge related to returning or failing to return equipment",
+          "keywords": [
+            "equipment return fee",
+            "nonreturn fee",
+            "unreturned modem",
+            "equipment charge after cancellation",
+            "return equipment billing"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_EQUIPMENT_RETURN_NONRETURN_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Installation or activation charge",
+          "definition": "Customer asks about installation, activation, or setup charges",
+          "keywords": [
+            "installation fee",
+            "activation fee",
+            "setup charge",
+            "install charge",
+            "new service fee"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_INSTALLATION_ACTIVATION_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Technician visit or service call charge",
+          "definition": "Customer asks about a billed technician visit or service call fee",
+          "keywords": [
+            "technician fee",
+            "service call charge",
+            "truck roll fee",
+            "repair visit charge",
+            "technician visit billing"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_TECHNICIAN_VISIT_SERVICE_CALL_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Equipment shipping or handling charge",
+          "definition": "Customer asks about shipping or handling fees for equipment",
+          "keywords": [
+            "shipping fee",
+            "equipment shipping",
+            "handling charge",
+            "delivery fee",
+            "modem shipping"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_EQUIPMENT_SHIPPING_HANDLING_CHARGE",
+          "mapped_evidence_count": 0
+        },
+        {
+          "name": "Replacement equipment charge",
+          "definition": "Customer asks about a charge for replacement equipment",
+          "keywords": [
+            "replacement modem charge",
+            "replacement equipment fee",
+            "router replacement charge",
+            "device replacement billing",
+            "equipment replacement"
+          ],
+          "provenance": "Coverage Expansion",
+          "canonical_tag": "SVC_REPLACEMENT_EQUIPMENT_CHARGE",
+          "mapped_evidence_count": 0
+        }
+      ],
+      "mapped_evidence_count": 1442
+    },
+    {
+      "name": "Other Category",
+      "evidence_volume": 3014,
+      "subcategories": [
+        {
+          "name": "Misc or Other billing",
+          "definition": "The call is billing related but no defined subcategory fits adequately",
+          "keywords": [
+            "misc billing",
+            "other billing",
+            "unclassified billing",
+            "unknown billing issue",
+            "billing other"
+          ],
+          "provenance": "Fallback",
+          "canonical_tag": "OTHER_MISC_OTHER_BILLING",
+          "mapped_evidence_count": 7
+        }
+      ],
+      "mapped_evidence_count": 7
+    }
+  ]
+}

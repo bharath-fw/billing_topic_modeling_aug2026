@@ -1,0 +1,43 @@
+# Large raw call dumps & master extract (PII + multi-GB)
+datasets/
+*.xlsx
+*.xls
+*.csv
+!code/artifacts/**/*.csv
+!code/input_output/taxonomy_keywords.csv
+
+# Intermediate / model artifacts
+code/data/
+*.parquet
+*.npy
+*.npz
+*.h5
+*.pkl
+*.pickle
+
+# Nested deliverable archives
+*.zip
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local HTML reports that embed large plotly payloads (optional keep small ones)
+code/output/
+
+# Streamlit UI local run state / logs
+brightspeed_ui/ui_runs/
+brightspeed_ui/streamlit.log
+*.log

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightspeed Billing — Taxonomy Mining &amp; Topic Modeling (v2)</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a2e;
+    --accent: #0b3d91;
+    --code-bg: #f4f4f8;
+    --code-border: #dde1e6;
+    --md-border: #e8eaf0;
+    --cell-gap: 1.6rem;
+    --radius: 6px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.3rem; border-bottom: 3px solid var(--accent); padding-bottom: 0.4rem; }
+  h2 { font-size: 1.3rem; color: var(--accent); margin-top: 2.4rem; margin-bottom: 0.6rem; }
+  h3 { font-size: 1.05rem; color: #333; margin-top: 1.2rem; margin-bottom: 0.4rem; }
+  p, li { font-size: 0.95rem; }
+  a { color: var(--accent); }
+  table { border-collapse: collapse; width: 100%; margin: 0.8rem 0; font-size: 0.9rem; }
+  th, td { border: 1px solid var(--md-border); padding: 0.45rem 0.7rem; text-align: left; }
+  th { background: #f0f2f5; font-weight: 600; }
+  td:first-child { white-space: nowrap; }
+  code { font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace; font-size: 0.88rem; }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    margin: 0.8rem 0;
+    line-height: 1.5;
+  }
+  pre code { background: none; padding: 0; }
+  .cell {
+    margin-bottom: var(--cell-gap);
+    border-left: 3px solid transparent;
+    padding-left: 1rem;
+  }
+  .cell-code {
+    border-left-color: var(--accent);
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 0.8rem 1rem;
+    margin: 0.6rem 0 1.2rem;
+  }
+  .cell-code pre { margin: 0; border: none; background: none; padding: 0; }
+  .cell-md { border-left-color: transparent; }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+  .badge-md { background: #e3f2fd; color: #1565c0; }
+  .badge-code { background: #fff3e0; color: #e65100; }
+  .pipeline-box {
+    background: #f8f9fb;
+    border: 1px solid var(--md-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--md-border);
+    margin: 2rem 0;
+  }
+  .meta { color: #666; font-size: 0.82rem; margin-top: 0.2rem; }
+  ul { margin-left: 1.2rem; margin-bottom: 0.6rem; }
+  li { margin-bottom: 0.25rem; }
+  strong { color: #111; }
+</style>
+</head>
+<body>
+
+<h1>Brightspeed Billing — Taxonomy Mining &amp; Topic Modeling (v2)</h1>
+<p class="meta">Jupyter Notebook · Python · 10 sections · No outputs (static conversion)</p>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- CELL: markdown — intro -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<p><strong>What this notebook does.</strong> 7 months of Brightspeed call data (Jan–Jul 2026) are
+turned into a <em>self-organized</em> billing taxonomy. Every step runs on <strong>BGE-large
+embedding vectors</strong> (<code>BAAI/bge-large-en-v1.5</code>, 1024-d); text/keywords are used
+<em>only to name and describe</em> the mined topics afterwards.</p>
+<p>The seed taxonomy files are reference material only — we never copy their labels.</p>
+</div>
+
+<div class="pipeline-box">
+ YTD calls (5.0M)                        billing rows (~0.8M)
+   │  collation: Root Cause + Reason        │  mined on embeddings only
+   ▼                                        ▼
+ heuristic Billing/Payments label ──▶ Billing Kernel (P/R/F1 tuned)
+                                            │
+                                            ▼
+                  K-Means on BGE embeddings (silhouette-tuned, 40 clusters)
+                                            │
+                                            ▼
+               leaf topics (keywords + representative text per cluster)
+                                            │  agglomerative on centroids
+                                            ▼
+              2-level taxonomy  (Category ▸ Subcategory)   ── mined, not seed
+                                            │
+                       ┌────────────────────┼────────────────────┐
+                       ▼                    ▼                    ▼
+                    GLVQ (90/10)         SOM 20x20            top-3 scoring
+                  prototype model      cell keywords          → XLSX
+                                          + 3D topography
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 0 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>0. Imports, paths, config</h2>
+<p>Everything lives in <code>src/</code> (shared modules) — the same code paths the batch
+scripts use.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>import json, sys
+from pathlib import Path
+import numpy as np, pandas as pd
+
+ROOT = Path.cwd().parent if Path.cwd().name == "notebooks" else Path.cwd()
+sys.path.insert(0, str(ROOT))
+
+from src import pipeline as P
+from src import clustering as C
+from src import taxonomy_mining as TM
+from src import viz
+from src.billing_kernel import BillingKernel
+from src.config import ARTIFACTS_DIR, CACHE_DIR, DATA_DIR, OUTPUTS_DIR, SEED
+from src.lvq import GLVQ
+from src.som import KohonenSOM
+
+print("ok · artifacts:", ARTIFACTS_DIR)</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 1 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>1. The ML training dataset</h2>
+<p>Seven months of calls, one row per call. We keep only the columns the pipeline
+needs:</p>
+<table>
+  <tr><th>Column</th><th>Meaning</th></tr>
+  <tr><td><code>ytd_call_id</code></td><td>unique call id across months</td></tr>
+  <tr><td><code>ban</code></td><td>billing account number</td></tr>
+  <tr><td><code>network_type</code></td><td>fiber / DSL / ...</td></tr>
+  <tr><td><code>record_id</code></td><td>source record id</td></tr>
+  <tr><td><code>category</code></td><td>heuristic <code>Primary Call Reason</code></td></tr>
+  <tr><td><code>call_intent</code></td><td><strong>collation of Root Cause + Reason</strong> (the text we model)</td></tr>
+  <tr><td><code>month</code> / <code>year_month</code> / <code>call_date</code></td><td>source + actual call dates</td></tr>
+</table>
+<p>Embeddings are computed on the <strong>whole short string</strong> — no sentence splitting:
+<code>embedding_model.encode("Customer upset about delayed shipping refund")</code>.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>df = P.load_ml_dataset()
+df = P.add_heuristic_label(df)
+df.head(3)
+print("\ntotal rows:", len(df))
+print(df["month"].value_counts().sort_index().to_string())
+print("\nbilling heuristic label (Primary Call Reason in {Billing, Payments}):")
+print(df["billing_heuristic"].value_counts().to_string())</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 2 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>2. Stage A — Billing / Non-Billing segmentation kernel</h2>
+<p>The first narrow is: <em>is this call billing-related?</em> We train a binary
+classifier on BGE embeddings using the heuristic <code>Billing</code>/<code>Payments</code> Primary
+Call Reason signal as the label, then tune a decision threshold on a held-out
+10% to maximise F1. The saved kernel can then segment <em>any</em> call text.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>kernel = BillingKernel.load(ARTIFACTS_DIR / "billing_kernel.joblib")
+print(json.dumps(kernel.metrics, indent=2))</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 3 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>3. Stage B — prune the billing segment</h2>
+<p>We predict billing on a mixed sample, keep only the billing rows, and carry their
+embeddings forward. <strong>Every later step (clustering, mining, LVQ, SOM) touches
+only these billing lines.</strong></p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>seg = pd.read_parquet(ARTIFACTS_DIR / "billing_segment_sample.parquet")
+X = np.load(CACHE_DIR / "emb_candidate_120k.npy")[: len(seg)]
+print("billing segment:", len(seg), "rows · embeddings:", X.shape)
+print(seg["month"].value_counts().sort_index().to_string())</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 4 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>4. Stage C — which clustering algorithm grooms the taxonomy best?</h2>
+<p>We compare candidates on the <strong>billing embeddings</strong> using criteria that matter
+for taxonomy grooming: silhouette (cohesion/separation), coverage, per-month
+stability, and how well each cluster maps to a seed topic
+(interpretability). K-Means wins on this data: full coverage, best silhouette,
+and the most stable silhouette across all 7 months.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>table = pd.read_json(ARTIFACTS_DIR / "clustering_comparison_table.json")
+print(table.round(4).to_string())
+best = C.choose_best(table)
+print(f"\nrecommended algorithm for taxonomy grooming: {best}")</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 5 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>5. Stage D — mine the self-organized taxonomy</h2>
+<p><code>taxonomy_mining.mine()</code> does the grooming:</p>
+<ol>
+  <li>fine K-Means clusters on the embeddings (40 clusters, silhouette-tuned);</li>
+  <li>every cluster becomes a <strong>leaf topic</strong> — named from its <em>own</em> representative
+      text, described by its <em>own</em> top TF-IDF keywords (display only);</li>
+  <li>cluster centroids are agglomeratively grouped into coarse <strong>categories</strong>.</li>
+</ol>
+<p>Clusters too small to trust fold into <code>Other Category :: Misc/Other</code>.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>mined = json.loads((DATA_DIR / "taxonomy_mined.json").read_text())
+n_cat = len(mined["categories"])
+n_sub = sum(len(c["subcategories"]) for c in mined["categories"])
+print(f"mined taxonomy: {n_cat} categories, {n_sub} subcategories")
+for cat in mined["categories"][:4]:
+    print("\n▍ " + cat["name"] + f"  ({cat['count']:,} calls)")
+    for s in cat["subcategories"][:4]:
+        print(f"   • {s['name']}  [{s['count']:,}]  kw={s['keywords']}")</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 6 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>6. Stage E — GLVQ prototype model (90/10, validated)</h2>
+<p>Generalised LVQ refines one prototype per mined leaf so leaves separate
+maximally while keeping coverage. It is trained on a <strong>90/10 split</strong> and its
+held-out accuracy is reported. The trained model is what we score with.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>model = GLVQ.load(ARTIFACTS_DIR / "glvq.joblib")
+active = json.loads((ARTIFACTS_DIR / "glvq_active_keys.json").read_text())
+print("active leaves:", len(active["active_keys"]))
+print("prototypes:", model.prototypes_.shape)
+top, sim, prob = model.predict_proba_topk(X[:2000], 3)
+print("mean top-1/2/3 confidence:", prob.mean(0).round(3))</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 7 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>7. Stage F — Kohonen SOM 20×20 + 3D topography</h2>
+<p>The SOM projects the billing embeddings onto a 20×20 grid. Each call lands in
+its Best-Matching Unit (BMU) cell; cells accumulate counts to form the
+topographic map. The cell table lists each cell's coordinates, call count,
+top keywords, and dominant mined subcategory.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>som = KohonenSOM.load(ARTIFACTS_DIR / "som20.joblib")
+density = som.accumulate_density(X)
+print("cells with calls:", (density > 0).sum(), "· total:", int(density.sum()))
+print("peak:", int(density.max()), "calls/cell")
+cell_df = pd.read_csv(OUTPUTS_DIR / "som_cells.tsv", sep="\t")
+cell_df.head(12)</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 8 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>8. Visualizations</h2>
+<p>Three outputs under <code>outputs/</code>:</p>
+<ul>
+  <li><code>treemap.png</code> — call volume by Category ▸ Subcategory</li>
+  <li><code>taxonomy_tree.png</code> — the mined 2-level hierarchy with keywords per leaf</li>
+  <li><code>som_3d.png</code> + <code>som_cells.png</code> — 3D topographic map and cell heat-map</li>
+</ul>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>import IPython.display as d
+for f in ["treemap.png", "taxonomy_tree.png", "som_3d.png"]:
+    d.display(d.Image(OUTPUTS_DIR / f))</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 9 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>9. Scoring</h2>
+<p>For each billing row we emit the top-3 Category :: Subcategory assignments with
+confidence. The full YTD scoring file is written by
+<code>scripts/score_ytd.py</code> → <code>outputs/scoring_ytd_billing.xlsx</code>.</p>
+</div>
+
+<div class="cell cell-code">
+<span class="badge badge-code">Code</span>
+<pre><code>sc = pd.read_excel(OUTPUTS_DIR / "scoring_billing_sample.xlsx",
+                   sheet_name="Billing_Scoring", nrows=5)
+sc[["ytd_call_id", "call_intent", "category_1", "subcategory_1", "conf_1",
+    "category_2", "subcategory_2", "conf_2", "category_3", "subcategory_3", "conf_3"]]</code></pre>
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 10 -->
+<!-- ============================================================ -->
+<div class="cell cell-md">
+<span class="badge badge-md">Markdown</span>
+<h2>10. What changed vs. v1</h2>
+<table>
+  <tr><th>Aspect</th><th>v1</th><th>v2</th></tr>
+  <tr><td>Data</td><td>June only</td><td>7 months (Jan–Jul 2026)</td></tr>
+  <tr><td>Scope</td><td>all calls</td><td><strong>billing only</strong> (kernel-pruned)</td></tr>
+  <tr><td>Embeddings</td><td>all-MiniLM (384-d)</td><td><strong>BGE-large (1024-d)</strong></td></tr>
+  <tr><td>Clustering</td><td>fixed k + label hand-map</td><td><strong>silhouette-tuned k + algorithm comparison</strong></td></tr>
+  <tr><td>Taxonomy</td><td>hand-labelled classes</td><td><strong>mined from embeddings</strong> (seed = reference only)</td></tr>
+  <tr><td>Model</td><td>softmax on UMAP+kmeans</td><td><strong>GLVQ prototypes</strong> on raw embeddings (90/10)</td></tr>
+  <tr><td>Maps</td><td>–</td><td><strong>SOM 20×20</strong> + 3D topography</td></tr>
+  <tr><td>Output</td><td>scored_intents.csv</td><td><strong>XLSX scoring file</strong> + treemap + taxonomy tree</td></tr>
+</table>
+</div>
+
+<hr class="section-divider">
+<p class="meta" style="text-align:center; margin-top:2rem;">End of notebook · 10 sections · Static HTML conversion (no outputs)</p>
+
+</body>
+</html>

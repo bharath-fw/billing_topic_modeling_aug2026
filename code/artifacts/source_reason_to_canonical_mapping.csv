@@ -1,0 +1,112 @@
+source_reason,evidence_count,canonical_tag,category,subcategory,similarity,mapping_method
+General balance inquiry,23645,BILL_CURRENT_ACCOUNT_BALANCE,Bill Understanding and Balance,Current account balance,0.248,manual
+General billing question,17935,BILL_GENERAL_BILLING_QUESTION,Bill Understanding and Balance,General billing question,0.53,manual
+General reward inquiry,10582,PROMO_GENERAL_REWARD_INQUIRY,Promotions Rewards and Gift Cards,General reward inquiry,0.551,manual
+General credit request,7634,CRD_GENERAL_CREDIT_REQUEST,Credits Refunds and Adjustments,General credit request,0.535,manual
+Refund request,6443,CRD_GENERAL_REFUND_REQUEST,Credits Refunds and Adjustments,General refund request,0.507,manual
+Bill higher than expected,4245,RATE_BILL_HIGHER_THAN_EXPECTED,Rates Discounts and Recurring Charges,Bill higher than expected,0.519,manual
+Bill copy request,4023,ACCT_BILL_COPY_STATEMENT_REQUEST,Billing Delivery Account and Preferences,Bill copy or statement request,0.344,manual
+Promotional gift card not received,3282,PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED,Promotions Rewards and Gift Cards,Promotional gift card not received,0.749,manual
+Request credit for service outage,3230,CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT,Credits Refunds and Adjustments,Outage credit or bill adjustment,0.445,manual
+Recurring charge question,2769,RATE_RECURRING_CHARGE_INQUIRY,Rates Discounts and Recurring Charges,Recurring charge inquiry,0.323,manual
+Late fee dispute,2408,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,0.625,manual
+Payment not reflected on account,1654,PAY_PAYMENT_NOT_POSTED,Payments and Payment Posting,Payment not posted,0.247,manual
+Bill received after service cancellation,1389,SVC_FINAL_BILL_AFTER_CANCELLATION,Service Changes Equipment and Final Billing,Final bill after cancellation,0.144,manual
+General payment arrangement inquiry,1370,DUE_PAYMENT_ARRANGEMENT_GENERAL_INQUIRY,Payment Assistance Past Due and Collections,Payment arrangement general inquiry,0.462,manual
+Incorrect billing after disconnect,1361,ERR_BILLING_AFTER_CANCELLATION_DISCONNECT,Billing Errors Fees and Taxes,Billing after cancellation or disconnect,0.141,manual
+General bill payment,1347,PAY_GENERAL_PAYMENT_QUESTION,Payments and Payment Posting,General payment question,0.27,manual
+Verify account balance and due date,1287,BILL_PAYMENT_DUE_DATE,Bill Understanding and Balance,Payment due date,0.172,manual
+Bill clarification request,1237,BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION,Bill Understanding and Balance,Bill amount or line item explanation,0.087,manual
+General AutoPay inquiry,1181,AUTO_AUTOPAY_GENERAL_INQUIRY,AutoPay and Payment Methods,AutoPay general inquiry,0.314,manual
+Recurring tax recovery surcharge,1138,ERR_TAX_RECOVERY_SURCHARGE,Billing Errors Fees and Taxes,Tax recovery surcharge,0.63,semantic
+Bill amount clarification,1117,BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION,Bill Understanding and Balance,Bill amount or line item explanation,0.144,manual
+Check promotional gift card status,1054,PROMO_PROMOTIONAL_GIFT_CARD_STATUS,Promotions Rewards and Gift Cards,Promotional gift card status,0.718,manual
+Request credit for phone outage,1020,CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT,Credits Refunds and Adjustments,Outage credit or bill adjustment,0.192,manual
+Debt collection inquiry,941,DUE_COLLECTIONS_NOTICE_AGENCY_INQUIRY,Payment Assistance Past Due and Collections,Collections notice or agency inquiry,0.437,manual
+Bill higher than expected due to tax recovery surcharge,829,ERR_TAX_RECOVERY_SURCHARGE,Billing Errors Fees and Taxes,Tax recovery surcharge,0.548,manual
+Request additional time to pay bill,761,DUE_EXTEND_DUE_DATE_REQUEST_MORE_TIME,Payment Assistance Past Due and Collections,Extend due date or request more time,0.414,manual
+Incorrect bill after service cancellation,638,ERR_BILLING_AFTER_CANCELLATION_DISCONNECT,Billing Errors Fees and Taxes,Billing after cancellation or disconnect,0.15,manual
+Extend payment due date,578,DUE_EXTEND_DUE_DATE_REQUEST_MORE_TIME,Payment Assistance Past Due and Collections,Extend due date or request more time,0.262,manual
+Bill received after service disconnection,534,ACCT_BILL_NOT_RECEIVED,Billing Delivery Account and Preferences,Bill not received,0.157,semantic
+Online payment issue,494,PAY_ONLINE_APP_PAYMENT_ISSUE,Payments and Payment Posting,Online or app payment issue,0.531,manual
+Payment arrangement system issue,421,DUE_PAYMENT_ARRANGEMENT_SYSTEM_ELIGIBILITY_ISSUE,Payment Assistance Past Due and Collections,Payment arrangement system or eligibility issue,0.422,manual
+Tax or fee inquiry,412,ERR_TAX_REGULATORY_FEE_INQUIRY,Billing Errors Fees and Taxes,Tax or regulatory fee inquiry,0.316,manual
+Paperless billing inquiry,401,ACCT_PAPERLESS_BILLING_GENERAL_INQUIRY,Billing Delivery Account and Preferences,Paperless billing general inquiry,0.472,manual
+Collections notice or credit concern,358,DUE_COLLECTIONS_NOTICE_AGENCY_INQUIRY,Payment Assistance Past Due and Collections,Collections notice or agency inquiry,0.289,manual
+Set up payment arrangement,337,DUE_SET_UP_PAYMENT_ARRANGEMENT,Payment Assistance Past Due and Collections,Set up payment arrangement,0.538,manual
+Review current bill amount,318,BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION,Bill Understanding and Balance,Bill amount or line item explanation,0.0,manual
+Recurring charge offset by discount,301,RATE_RECURRING_CHARGE_INQUIRY,Rates Discounts and Recurring Charges,Recurring charge inquiry,0.247,semantic
+Verify suspicious email or payment,295,ACCT_BILLING_EMAIL_NOTIFICATION_ISSUE,Billing Delivery Account and Preferences,Billing email or notification issue,0.148,semantic
+Payment method update,282,AUTO_UPDATE_REPLACE_PAYMENT_METHOD,AutoPay and Payment Methods,Update or replace payment method,0.467,manual
+Enroll in AutoPay,249,AUTO_ENROLL_IN_AUTOPAY,AutoPay and Payment Methods,Enroll in AutoPay,0.492,manual
+Switch from paperless to paper billing,231,ACCT_SWITCH_PAPER_BILLING,Billing Delivery Account and Preferences,Switch to paper billing,0.45,semantic
+Taxes and regulatory fees inquiry,215,ERR_TAX_REGULATORY_FEE_INQUIRY,Billing Errors Fees and Taxes,Tax or regulatory fee inquiry,0.342,manual
+Promotional $100 gift card not received,189,PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED,Promotions Rewards and Gift Cards,Promotional gift card not received,0.515,manual
+Make one-time account payment,179,PAY_MAKE_ONE_TIME_PAYMENT,Payments and Payment Posting,Make a one time payment,0.362,manual
+Confirm remaining balance,140,BILL_CURRENT_ACCOUNT_BALANCE,Bill Understanding and Balance,Current account balance,0.101,manual
+AutoPay payment failure,122,AUTO_AUTOPAY_PAYMENT_FAILURE,AutoPay and Payment Methods,AutoPay payment failure,0.376,manual
+General payment question,111,PAY_GENERAL_PAYMENT_QUESTION,Payments and Payment Posting,General payment question,0.599,manual
+Fraud or scam report,108,DUE_CREDIT_REPORTING_CREDIT_SCORE_CONCERN,Payment Assistance Past Due and Collections,Credit reporting or credit score concern,0.058,semantic
+Request bill adjustment after outage,98,CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT,Credits Refunds and Adjustments,Outage credit or bill adjustment,0.338,manual
+Confirm AutoPay enrollment,93,AUTO_CONFIRM_AUTOPAY_ENROLLMENT,AutoPay and Payment Methods,Confirm AutoPay enrollment,0.536,manual
+Request balance information,68,BILL_CURRENT_ACCOUNT_BALANCE,Bill Understanding and Balance,Current account balance,0.105,manual
+Service restoration after payment,68,DUE_RESTORE_SERVICE_AFTER_PAYMENT,Payment Assistance Past Due and Collections,Restore service after payment,0.246,manual
+Unauthorized payment or fraud,68,ERR_UNAUTHORIZED_BILLING_CHARGE,Billing Errors Fees and Taxes,Unauthorized billing charge,0.14,semantic
+Payment for past-due balance,67,DUE_PAST_DUE_BALANCE_NONPAYMENT,Payment Assistance Past Due and Collections,Past due balance or nonpayment,0.301,manual
+Payment details inquiry,63,PAY_PAYMENT_HISTORY_TRANSACTION_DETAILS,Payments and Payment Posting,Payment history or transaction details,0.287,manual
+Enroll in paperless billing,46,ACCT_ENROLL_IN_PAPERLESS_BILLING,Billing Delivery Account and Preferences,Enroll in paperless billing,0.496,manual
+Missing check payment or refund,39,CRD_REFUND_NOT_RECEIVED_REFUND_STATUS,Credits Refunds and Adjustments,Refund not received or refund status,0.186,manual
+Update billing address,36,ACCT_UPDATE_BILLING_ADDRESS,Billing Delivery Account and Preferences,Update billing address,0.565,manual
+Remove AutoPay from account,31,AUTO_REMOVE_AUTOPAY,AutoPay and Payment Methods,Remove AutoPay,0.354,manual
+Request payment confirmation number,31,PAY_PAYMENT_CONFIRMATION_RECEIPT,Payments and Payment Posting,Payment confirmation or receipt,0.501,manual
+Online account access issue,29,ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION,Billing Delivery Account and Preferences,Online account access or verification,0.567,manual
+Replace compromised credit card,23,AUTO_COMPROMISED_CARD_BANK_ACCOUNT,AutoPay and Payment Methods,Compromised card or bank account,0.37,manual
+Payment method inquiry,19,AUTO_UPDATE_REPLACE_PAYMENT_METHOD,AutoPay and Payment Methods,Update or replace payment method,0.274,semantic
+Cancel service request,19,SVC_CANCEL_DISCONNECT_SERVICE_WITH_BILLING_IMPACT,Service Changes Equipment and Final Billing,Cancel or disconnect service with billing impact,0.266,semantic
+Remove service or charge,18,SVC_REMOVE_SERVICE_CHARGE,Service Changes Equipment and Final Billing,Remove service or charge,0.512,manual
+Confirm payment posted,16,PAY_PAYMENT_CONFIRMATION_RECEIPT,Payments and Payment Posting,Payment confirmation or receipt,0.177,manual
+Credit score concern,15,DUE_CREDIT_REPORTING_CREDIT_SCORE_CONCERN,Payment Assistance Past Due and Collections,Credit reporting or credit score concern,0.475,manual
+Request lower plan pricing,13,RATE_LOWER_PRICE_DISCOUNT_REQUEST,Rates Discounts and Recurring Charges,Lower price or discount request,0.231,semantic
+General payment confirmation inquiry,12,PAY_PAYMENT_CONFIRMATION_RECEIPT,Payments and Payment Posting,Payment confirmation or receipt,0.299,semantic
+Update online account information,12,ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION,Billing Delivery Account and Preferences,Online account access or verification,0.26,semantic
+Payment applied to wrong account,10,PAY_PAYMENT_APPLIED_WRONG_ACCOUNT,Payments and Payment Posting,Payment applied to wrong account,0.674,manual
+"Internet service suspended due to an unpaid bill,...",10,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,0.298,semantic
+Service removal request,10,SVC_REMOVE_SERVICE_CHARGE,Service Changes Equipment and Final Billing,Remove service or charge,0.047,manual
+Online account verification issue,9,ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION,Billing Delivery Account and Preferences,Online account access or verification,0.488,manual
+Update AutoPay credit card,8,AUTO_UPDATE_AUTOPAY_PAYMENT_METHOD,AutoPay and Payment Methods,Update AutoPay payment method,0.308,manual
+"Internet service suspended due to a past-due payment,...",7,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,0.228,semantic
+Plans and pricing inquiry,7,RATE_PLAN_PACKAGE_PRICE_INQUIRY,Rates Discounts and Recurring Charges,Plan or package price inquiry,0.185,semantic
+"Internet service suspended despite making a payment, and...",6,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,0.155,semantic
+"Internet service suspended due to an unpaid bill, and...",6,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,0.298,semantic
+Speak to billing agent,6,OTHER_MISC_OTHER_BILLING,Other Category,Misc or Other billing,0.057,semantic
+Recurring issues with automatic payments not processing...,5,AUTO_AUTOPAY_GENERAL_INQUIRY,AutoPay and Payment Methods,AutoPay general inquiry,0.169,semantic
+Recurring automatic payment failures leading to service...,5,AUTO_AUTOPAY_PAYMENT_FAILURE,AutoPay and Payment Methods,AutoPay payment failure,0.128,semantic
+Internet service not restored after payment due to...,5,DUE_RESTORE_SERVICE_AFTER_PAYMENT,Payment Assistance Past Due and Collections,Restore service after payment,0.219,semantic
+Incorrectly charged a late fee despite paying their bill...,5,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,0.268,semantic
+Bill late and wanted to avoid late fee,5,ERR_LATE_FEE_WAIVER_AVOIDANCE,Billing Errors Fees and Taxes,Late fee waiver or avoidance,0.422,manual
+"Internet service suspended due to a past due payment,...",5,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,0.228,semantic
+"Internet service disconnected due to a past-due payment,...",5,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,0.233,semantic
+"Payment made by not reflected in system, leading to...",4,PAY_PAYMENT_NOT_POSTED,Payments and Payment Posting,Payment not posted,0.188,semantic
+"Incurred a late fee due to a late payment, which the...",3,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,0.474,semantic
+Incorrectly charged a late payment fee despite being on...,3,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,0.299,semantic
+Incorrectly charged a late fee despite making a timely...,3,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,0.242,semantic
+AutoPay payment method inquiry,3,AUTO_UPDATE_AUTOPAY_PAYMENT_METHOD,AutoPay and Payment Methods,Update AutoPay payment method,0.369,semantic
+Wanted to understand the financial impact of removing...,2,DUE_FINANCIAL_HARDSHIP_PAYMENT_ASSISTANCE,Payment Assistance Past Due and Collections,Financial hardship or payment assistance,0.078,semantic
+Wanted to reduce their monthly internet bill by...,2,RATE_LOWER_PRICE_DISCOUNT_REQUEST,Rates Discounts and Recurring Charges,Lower price or discount request,0.169,semantic
+Found current internet plan too expensive for their...,2,BILL_CURRENT_ACCOUNT_BALANCE,Bill Understanding and Balance,Current account balance,0.134,semantic
+Payment failed due to insufficient funds,2,ERR_RETURNED_PAYMENT_INSUFFICIENT_FUNDS_FEE,Billing Errors Fees and Taxes,Returned payment or insufficient funds fee,0.384,semantic
+Late fee waiver request,2,ERR_LATE_FEE_WAIVER_AVOIDANCE,Billing Errors Fees and Taxes,Late fee waiver or avoidance,0.494,semantic
+Late fee due to AutoPay issue,2,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,0.315,semantic
+Disconnect service request,2,SVC_CANCEL_DISCONNECT_SERVICE_WITH_BILLING_IMPACT,Service Changes Equipment and Final Billing,Cancel or disconnect service with billing impact,0.266,semantic
+Vacation mode billing issue,2,SVC_VACATION_HOLD_BILLING,Service Changes Equipment and Final Billing,Vacation hold billing,0.286,manual
+"With an unclear inquiry, possibly related to their...",1,OTHER_MISC_OTHER_BILLING,Other Category,Misc or Other billing,0.058,semantic
+Update payment method and make payment,1,AUTO_UPDATE_REPLACE_PAYMENT_METHOD,AutoPay and Payment Methods,Update or replace payment method,0.34,semantic
+Verify service restoration after payment,1,DUE_RESTORE_SERVICE_AFTER_PAYMENT,Payment Assistance Past Due and Collections,Restore service after payment,0.195,semantic
+Update billing address and AutoPay,1,ACCT_UPDATE_BILLING_ADDRESS,Billing Delivery Account and Preferences,Update billing address,0.467,semantic
+Unable to pay bill online,1,PAY_ONLINE_APP_PAYMENT_ISSUE,Payments and Payment Posting,Online or app payment issue,0.212,semantic
+To know the monthly rental fee for a modem,1,SVC_MODEM_ROUTER_RENTAL_FEE,Service Changes Equipment and Final Billing,Modem or router rental fee,0.297,manual
+Inquiring about modem rental fees and ownership after...,1,SVC_MODEM_ROUTER_RENTAL_FEE,Service Changes Equipment and Final Billing,Modem or router rental fee,0.215,semantic
+A new modem and uncertain if it would incur additional...,1,BILL_FIRST_BILL_EXPLANATION,Bill Understanding and Balance,First bill explanation,0.085,semantic
+To access his account to check his bill due to website...,1,ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION,Billing Delivery Account and Preferences,Online account access or verification,0.248,semantic
+Service outage during suspension,1,CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT,Credits Refunds and Adjustments,Outage credit or bill adjustment,0.246,semantic
+Closed account billed in error,1,ERR_BILLING_AFTER_CANCELLATION_DISCONNECT,Billing Errors Fees and Taxes,Billing after cancellation or disconnect,0.295,manual

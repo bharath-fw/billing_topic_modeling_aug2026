@@ -1,0 +1,133 @@
+cell,row,col,prototype_count,category,subcategory
+0,0,0,12,AutoPay and Payment Methods,Update or replace payment method
+1,0,1,8,AutoPay and Payment Methods,Update AutoPay payment method
+4,0,4,10,AutoPay and Payment Methods,Change AutoPay payment date
+6,0,6,10,Payments and Payment Posting,Duplicate payment
+7,0,7,10,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment
+10,0,10,10,AutoPay and Payment Methods,Compromised card or bank account
+12,0,12,9,Bill Understanding and Balance,First bill explanation
+13,0,13,10,Bill Understanding and Balance,General billing question
+14,0,14,1,Bill Understanding and Balance,Upcoming or estimated bill amount
+15,0,15,13,Service Changes Equipment and Final Billing,Final bill after cancellation
+17,0,17,10,AutoPay and Payment Methods,AutoPay payment failure
+19,0,19,19,AutoPay and Payment Methods,Remove AutoPay
+30,1,10,9,Billing Delivery Account and Preferences,Bill copy or statement request
+31,1,11,1,Billing Delivery Account and Preferences,Bill copy or statement request
+32,1,12,1,Bill Understanding and Balance,First bill explanation
+36,1,16,6,Bill Understanding and Balance,Upcoming or estimated bill amount
+39,1,19,1,AutoPay and Payment Methods,Enroll in AutoPay
+40,2,0,10,Bill Understanding and Balance,Current account balance
+42,2,2,1,Billing Delivery Account and Preferences,Update billing address
+43,2,3,18,Billing Delivery Account and Preferences,Update billing contact information
+44,2,4,1,Billing Delivery Account and Preferences,Update billing address
+47,2,7,10,Rates Discounts and Recurring Charges,Bill higher than expected
+53,2,13,1,Other Category,Misc or Other billing
+54,2,14,9,Other Category,Misc or Other billing
+59,2,19,10,AutoPay and Payment Methods,AutoPay general inquiry
+60,3,0,10,Service Changes Equipment and Final Billing,Closed account balance or final payment
+70,3,10,9,Billing Errors Fees and Taxes,Incorrect or unexpected charge
+71,3,11,1,Billing Errors Fees and Taxes,Incorrect or unexpected charge
+72,3,12,1,Service Changes Equipment and Final Billing,Replacement equipment charge
+73,3,13,1,Service Changes Equipment and Final Billing,Equipment return or nonreturn charge
+77,3,17,2,Promotions Rewards and Gift Cards,Promotion or reward eligibility
+78,3,18,5,Promotions Rewards and Gift Cards,General reward inquiry
+79,3,19,1,Promotions Rewards and Gift Cards,General reward inquiry
+82,4,2,10,Credits Refunds and Adjustments,General credit request
+85,4,5,11,Credits Refunds and Adjustments,Service quality credit
+88,4,8,10,Billing Errors Fees and Taxes,Incorrect tax or fee amount
+92,4,12,2,Service Changes Equipment and Final Billing,Equipment purchase or ownership charge
+93,4,13,2,Service Changes Equipment and Final Billing,Replacement equipment charge
+94,4,14,9,Service Changes Equipment and Final Billing,Equipment return or nonreturn charge
+96,4,16,10,Promotions Rewards and Gift Cards,Promotion terms or fulfillment timing
+97,4,17,8,Promotions Rewards and Gift Cards,Promotion or reward eligibility
+99,4,19,4,Promotions Rewards and Gift Cards,General reward inquiry
+100,5,0,10,Billing Delivery Account and Preferences,Online account access or verification
+104,5,4,3,Credits Refunds and Adjustments,Outage credit or bill adjustment
+105,5,5,6,Credits Refunds and Adjustments,Outage credit or bill adjustment
+108,5,8,10,Billing Errors Fees and Taxes,Tax recovery surcharge
+112,5,12,9,Service Changes Equipment and Final Billing,Equipment purchase or ownership charge
+113,5,13,5,Service Changes Equipment and Final Billing,Replacement equipment charge
+114,5,14,1,Service Changes Equipment and Final Billing,Replacement equipment charge
+119,5,19,1,Promotions Rewards and Gift Cards,Gift card amount or value inquiry
+122,6,2,10,Credits Refunds and Adjustments,Missing credit or adjustment
+126,6,6,10,Payment Assistance Past Due and Collections,Financial hardship or payment assistance
+131,6,11,10,Service Changes Equipment and Final Billing,Equipment shipping or handling charge
+138,6,18,9,Promotions Rewards and Gift Cards,Gift card amount or value inquiry
+139,6,19,5,Promotions Rewards and Gift Cards,Promotional gift card status
+140,7,0,10,Payment Assistance Past Due and Collections,Credit reporting or credit score concern
+150,7,10,10,Billing Errors Fees and Taxes,Tax or regulatory fee inquiry
+155,7,15,10,Payment Assistance Past Due and Collections,Collections notice or agency inquiry
+157,7,17,2,Promotions Rewards and Gift Cards,Promotional gift card status
+158,7,18,3,Promotions Rewards and Gift Cards,Promotional gift card status
+159,7,19,9,Promotions Rewards and Gift Cards,Promotional gift card not received
+160,8,0,10,Payment Assistance Past Due and Collections,Paid debt still in collections
+164,8,4,10,Billing Errors Fees and Taxes,Late fee waiver or avoidance
+168,8,8,10,Billing Errors Fees and Taxes,Billing after cancellation or disconnect
+172,8,12,10,Service Changes Equipment and Final Billing,Modem or router rental fee
+178,8,18,1,Promotions Rewards and Gift Cards,Promotional gift card not received
+183,9,3,10,Billing Errors Fees and Taxes,Late fee dispute
+186,9,6,10,Bill Understanding and Balance,Bill amount or line item explanation
+190,9,10,10,Service Changes Equipment and Final Billing,Installation or activation charge
+194,9,14,2,Bill Understanding and Balance,Prorated bill explanation
+196,9,16,10,Credits Refunds and Adjustments,Deposit refund
+200,10,0,16,Billing Errors Fees and Taxes,Duplicate charge
+201,10,1,4,Billing Errors Fees and Taxes,Duplicate charge
+214,10,14,8,Bill Understanding and Balance,Prorated bill explanation
+219,10,19,10,Billing Errors Fees and Taxes,Returned payment or insufficient funds fee
+227,11,7,10,Payments and Payment Posting,Payment history or transaction details
+230,11,10,10,Service Changes Equipment and Final Billing,Cancel or disconnect service with billing impact
+233,11,13,10,Service Changes Equipment and Final Billing,Change effective date or proration
+237,11,17,10,Service Changes Equipment and Final Billing,Technician visit or service call charge
+239,11,19,10,Billing Errors Fees and Taxes,Reconnection or restoration fee
+240,12,0,10,Rates Discounts and Recurring Charges,Promotional rate expired
+241,12,1,10,Billing Delivery Account and Preferences,Bill not received
+243,12,3,14,AutoPay and Payment Methods,AutoPay charged wrong amount
+244,12,4,6,AutoPay and Payment Methods,AutoPay charged wrong amount
+246,12,6,10,AutoPay and Payment Methods,Confirm AutoPay enrollment
+249,12,9,10,Payment Assistance Past Due and Collections,Past due balance or nonpayment
+252,12,12,10,Service Changes Equipment and Final Billing,Move or transfer service billing
+255,12,15,2,Service Changes Equipment and Final Billing,Add service or feature billing impact
+276,13,16,8,Service Changes Equipment and Final Billing,Add service or feature billing impact
+279,13,19,10,Service Changes Equipment and Final Billing,Vacation hold billing
+280,14,0,17,Payments and Payment Posting,Payment not posted
+281,14,1,3,Payments and Payment Posting,Payment applied to wrong account
+286,14,6,10,Payments and Payment Posting,Make a one time payment
+289,14,9,10,Payments and Payment Posting,Check or mailed payment status
+295,14,15,10,Service Changes Equipment and Final Billing,Remove service or charge
+298,14,18,1,Service Changes Equipment and Final Billing,Resume service after vacation hold billing
+299,14,19,9,Service Changes Equipment and Final Billing,Resume service after vacation hold billing
+303,15,3,10,Payments and Payment Posting,Payment confirmation or receipt
+305,15,5,9,Payments and Payment Posting,Payment declined or failed
+307,15,7,10,Payments and Payment Posting,Partial payment
+312,15,12,9,Billing Delivery Account and Preferences,Switch to paper billing
+313,15,13,8,Billing Delivery Account and Preferences,Paperless billing general inquiry
+316,15,16,9,Rates Discounts and Recurring Charges,Add on or feature recurring charge
+317,15,17,1,Rates Discounts and Recurring Charges,Add on or feature recurring charge
+320,16,0,10,Payments and Payment Posting,Payment reversed or returned
+325,16,5,1,Payments and Payment Posting,Payment declined or failed
+330,16,10,10,Billing Delivery Account and Preferences,Enroll in paperless billing
+332,16,12,1,Billing Delivery Account and Preferences,Switch to paper billing
+333,16,13,2,Billing Delivery Account and Preferences,Paperless billing general inquiry
+339,16,19,10,Bill Understanding and Balance,Billing cycle or statement date
+342,17,2,8,Bill Understanding and Balance,Payment due date
+343,17,3,2,Bill Understanding and Balance,Payment due date
+344,17,4,10,Payments and Payment Posting,General payment question
+346,17,6,1,Payment Assistance Past Due and Collections,Payment arrangement general inquiry
+347,17,7,9,Payment Assistance Past Due and Collections,Payment arrangement general inquiry
+353,17,13,1,Credits Refunds and Adjustments,Refund method or timing inquiry
+356,17,16,10,Rates Discounts and Recurring Charges,Recurring charge inquiry
+362,18,2,10,Payment Assistance Past Due and Collections,Set up payment arrangement
+369,18,9,10,Payment Assistance Past Due and Collections,Restore service after payment
+373,18,13,9,Credits Refunds and Adjustments,Refund method or timing inquiry
+379,18,19,10,Rates Discounts and Recurring Charges,Plan or package price inquiry
+380,19,0,10,Payment Assistance Past Due and Collections,Missed or broken payment arrangement
+381,19,1,10,Payment Assistance Past Due and Collections,Payment arrangement system or eligibility issue
+384,19,4,10,Payments and Payment Posting,Online or app payment issue
+386,19,6,10,Billing Delivery Account and Preferences,Billing email or notification issue
+388,19,8,10,Payment Assistance Past Due and Collections,Extend due date or request more time
+391,19,11,10,Credits Refunds and Adjustments,Overpayment refund
+392,19,12,10,Credits Refunds and Adjustments,General refund request
+394,19,14,10,Credits Refunds and Adjustments,Refund not received or refund status
+395,19,15,10,Rates Discounts and Recurring Charges,Missing or incorrect discount
+397,19,17,20,Rates Discounts and Recurring Charges,Price or rate increase
+399,19,19,10,Service Changes Equipment and Final Billing,Upgrade or downgrade billing impact

@@ -1,0 +1,19 @@
+BRIGHTSPEED BILLING CALL CLASSIFICATION
+
+Classify each call using only the call_intent text and the Canonical_Vocabulary sheet.
+
+RULES
+1. tag_1 is required. Choose the single most specific supported canonical_tag.
+2. Use tag_2 or tag_3 only when the call clearly contains a separate additional billing ask. Leave unused ranks blank.
+3. Do not add extra tags for synonyms, background facts, causes, symptoms, or consequences of the same issue.
+4. Rank distinct topics by the customer's main ask, then secondary asks.
+5. Use only canonical_tag values from Canonical_Vocabulary. Never invent or alter a tag.
+6. If no specific tag fits, use OTHER_MISC_OTHER_BILLING.
+7. Copy category and subcategory exactly from Canonical_Vocabulary for each selected tag.
+
+WRITE THESE COLUMNS
+ai_tag_1, ai_category_1, ai_subcategory_1
+ai_tag_2, ai_category_2, ai_subcategory_2
+ai_tag_3, ai_category_3, ai_subcategory_3
+
+Leave rank 2 and rank 3 fields blank unless the call truly has multiple distinct billing topics.

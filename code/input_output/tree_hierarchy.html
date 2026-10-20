@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tree_hierarchy.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="comprehensive-brightspeed-billing-taxonomy">Comprehensive Brightspeed Billing Taxonomy</h1>
+<p>Canonical tags are stable machine output labels. Categories remain macro. Subcategories represent specific customer billing asks.</p>
+<h2 id="bill-understanding-and-balance">Bill Understanding and Balance</h2>
+<ul>
+<li>BILL_GENERAL_BILLING_QUESTION: General billing question
+<ul>
+<li>General help understanding billing when no more specific issue is stated</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>BILL_CURRENT_ACCOUNT_BALANCE: Current account balance
+<ul>
+<li>Customer wants the current amount owed on the account</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>BILL_PAYMENT_DUE_DATE: Payment due date
+<ul>
+<li>Customer wants to know when payment is due</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION: Bill amount or line item explanation
+<ul>
+<li>Customer wants an explanation of an amount, line item, or calculation without clearly alleging an error</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>BILL_FIRST_BILL_EXPLANATION: First bill explanation
+<ul>
+<li>Customer needs help understanding the first bill after new service or activation</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>BILL_PRORATED_BILL_EXPLANATION: Prorated bill explanation
+<ul>
+<li>Customer asks about partial month, prorated, or midcycle billing</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>BILL_BILLING_CYCLE_STATEMENT_DATE: Billing cycle or statement date
+<ul>
+<li>Customer asks when the billing period starts, ends, or when the statement generates</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>BILL_UPCOMING_ESTIMATED_BILL_AMOUNT: Upcoming or estimated bill amount
+<ul>
+<li>Customer asks what a future or next bill is expected to be</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="rates-discounts-and-recurring-charges">Rates Discounts and Recurring Charges</h2>
+<ul>
+<li>RATE_BILL_HIGHER_THAN_EXPECTED: Bill higher than expected
+<ul>
+<li>Customer reports a higher total bill but has not isolated one specific erroneous charge</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>RATE_PRICE_RATE_INCREASE: Price or rate increase
+<ul>
+<li>Customer asks about an increase in recurring service price or plan rate</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>RATE_PROMOTIONAL_RATE_EXPIRED: Promotional rate expired
+<ul>
+<li>Customer says a promotional or introductory rate ended and the bill increased</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>RATE_MISSING_INCORRECT_DISCOUNT: Missing or incorrect discount
+<ul>
+<li>Customer expects a recurring discount that is absent or wrong</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>RATE_LOWER_PRICE_DISCOUNT_REQUEST: Lower price or discount request
+<ul>
+<li>Customer wants a lower monthly price, discount, or more affordable plan</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>RATE_PLAN_PACKAGE_PRICE_INQUIRY: Plan or package price inquiry
+<ul>
+<li>Customer asks what a plan, package, or service tier costs</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>RATE_RECURRING_CHARGE_INQUIRY: Recurring charge inquiry
+<ul>
+<li>Customer asks about a recurring monthly charge without clearly disputing it</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>RATE_ADD_FEATURE_RECURRING_CHARGE: Add on or feature recurring charge
+<ul>
+<li>Customer asks about a recurring charge for an added feature, service, or optional product</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="billing-errors-fees-and-taxes">Billing Errors Fees and Taxes</h2>
+<ul>
+<li>ERR_INCORRECT_UNEXPECTED_CHARGE: Incorrect or unexpected charge
+<ul>
+<li>Customer states that a billed charge is wrong or should not be present</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ERR_DUPLICATE_CHARGE: Duplicate charge
+<ul>
+<li>Customer says the same charge appears more than once</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>ERR_UNAUTHORIZED_BILLING_CHARGE: Unauthorized billing charge
+<ul>
+<li>Customer says a charge was not authorized or was not requested</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>ERR_BILLING_AFTER_CANCELLATION_DISCONNECT: Billing after cancellation or disconnect
+<ul>
+<li>Customer disputes charges continuing after cancellation, disconnect, closure, or removal</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ERR_LATE_FEE_DISPUTE: Late fee dispute
+<ul>
+<li>Customer says a late fee was assessed incorrectly</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ERR_LATE_FEE_WAIVER_AVOIDANCE: Late fee waiver or avoidance
+<ul>
+<li>Customer asks to waive, remove, or avoid a plausible late fee</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ERR_RETURNED_PAYMENT_INSUFFICIENT_FUNDS_FEE: Returned payment or insufficient funds fee
+<ul>
+<li>Customer asks about a fee caused by a returned or insufficient funds payment</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>ERR_RECONNECTION_RESTORATION_FEE: Reconnection or restoration fee
+<ul>
+<li>Customer asks about a fee charged to reconnect or restore service</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>ERR_TAX_REGULATORY_FEE_INQUIRY: Tax or regulatory fee inquiry
+<ul>
+<li>Customer asks about taxes, government fees, or regulatory charges</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ERR_TAX_RECOVERY_SURCHARGE: Tax recovery surcharge
+<ul>
+<li>Customer specifically asks about or disputes the tax recovery surcharge</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ERR_INCORRECT_TAX_FEE_AMOUNT: Incorrect tax or fee amount
+<ul>
+<li>Customer believes a tax, surcharge, or mandatory fee amount is wrong</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="payments-and-payment-posting">Payments and Payment Posting</h2>
+<ul>
+<li>PAY_MAKE_ONE_TIME_PAYMENT: Make a one time payment
+<ul>
+<li>Customer wants to make a single payment outside AutoPay</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_GENERAL_PAYMENT_QUESTION: General payment question
+<ul>
+<li>Customer has a payment question without a more specific payment issue</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_ONLINE_APP_PAYMENT_ISSUE: Online or app payment issue
+<ul>
+<li>Customer cannot complete a payment through the website, portal, or app</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_PAYMENT_DECLINED_FAILED: Payment declined or failed
+<ul>
+<li>A non AutoPay payment attempt was declined or failed</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>PAY_PAYMENT_NOT_POSTED: Payment not posted
+<ul>
+<li>Customer says a completed payment is missing from the account or balance</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_PAYMENT_APPLIED_WRONG_ACCOUNT: Payment applied to wrong account
+<ul>
+<li>Customer says a completed payment was credited to the wrong account</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_PAYMENT_CONFIRMATION_RECEIPT: Payment confirmation or receipt
+<ul>
+<li>Customer wants confirmation that a payment was received or a receipt or confirmation number</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_PAYMENT_REVERSED_RETURNED: Payment reversed or returned
+<ul>
+<li>Customer asks why a previously completed payment was reversed, returned, or removed</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>PAY_DUPLICATE_PAYMENT: Duplicate payment
+<ul>
+<li>Customer reports that the same payment was made or withdrawn more than once</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>PAY_PARTIAL_PAYMENT: Partial payment
+<ul>
+<li>Customer asks whether or how to make a payment for less than the total amount due</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>PAY_CHECK_MAILED_PAYMENT_STATUS: Check or mailed payment status
+<ul>
+<li>Customer asks about a check, money order, or mailed payment that is pending or missing</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PAY_PAYMENT_HISTORY_TRANSACTION_DETAILS: Payment history or transaction details
+<ul>
+<li>Customer wants details about prior payments, dates, amounts, or methods</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+</ul>
+<h2 id="autopay-and-payment-methods">AutoPay and Payment Methods</h2>
+<ul>
+<li>AUTO_AUTOPAY_GENERAL_INQUIRY: AutoPay general inquiry
+<ul>
+<li>Customer asks a general question about automatic payments</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_ENROLL_IN_AUTOPAY: Enroll in AutoPay
+<ul>
+<li>Customer wants to start automatic payments</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_CONFIRM_AUTOPAY_ENROLLMENT: Confirm AutoPay enrollment
+<ul>
+<li>Customer wants to verify whether AutoPay is active</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_REMOVE_AUTOPAY: Remove AutoPay
+<ul>
+<li>Customer wants to stop or disable automatic payments</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_AUTOPAY_PAYMENT_FAILURE: AutoPay payment failure
+<ul>
+<li>An expected automatic payment did not process</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_AUTOPAY_CHARGED_WRONG_AMOUNT: AutoPay charged wrong amount
+<ul>
+<li>Customer says AutoPay withdrew an incorrect amount</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>AUTO_DUPLICATE_AUTOPAY_WITHDRAWAL: Duplicate AutoPay withdrawal
+<ul>
+<li>Customer says AutoPay withdrew more than once for the same bill</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>AUTO_CHANGE_AUTOPAY_PAYMENT_DATE: Change AutoPay payment date
+<ul>
+<li>Customer wants to change when an automatic payment is withdrawn</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>AUTO_UPDATE_REPLACE_PAYMENT_METHOD: Update or replace payment method
+<ul>
+<li>Customer wants to add, change, or replace a card or bank account</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_UPDATE_AUTOPAY_PAYMENT_METHOD: Update AutoPay payment method
+<ul>
+<li>Customer specifically wants to change the card or bank account used for AutoPay</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>AUTO_COMPROMISED_CARD_BANK_ACCOUNT: Compromised card or bank account
+<ul>
+<li>Customer needs to replace a payment method because it is compromised or closed</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+</ul>
+<h2 id="payment-assistance-past-due-and-collections">Payment Assistance Past Due and Collections</h2>
+<ul>
+<li>DUE_PAYMENT_ARRANGEMENT_GENERAL_INQUIRY: Payment arrangement general inquiry
+<ul>
+<li>Customer asks about payment plans or arrangements</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_SET_UP_PAYMENT_ARRANGEMENT: Set up payment arrangement
+<ul>
+<li>Customer wants to establish a payment arrangement</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_EXTEND_DUE_DATE_REQUEST_MORE_TIME: Extend due date or request more time
+<ul>
+<li>Customer asks for additional time to pay or a due date extension</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_PAYMENT_ARRANGEMENT_SYSTEM_ELIGIBILITY_ISSUE: Payment arrangement system or eligibility issue
+<ul>
+<li>Customer cannot create or manage an arrangement because of a system or eligibility problem</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_MISSED_BROKEN_PAYMENT_ARRANGEMENT: Missed or broken payment arrangement
+<ul>
+<li>Customer has missed a promised payment or an existing arrangement is no longer valid</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>DUE_FINANCIAL_HARDSHIP_PAYMENT_ASSISTANCE: Financial hardship or payment assistance
+<ul>
+<li>Customer requests hardship support or billing assistance because they cannot afford the bill</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>DUE_PAST_DUE_BALANCE_NONPAYMENT: Past due balance or nonpayment
+<ul>
+<li>Customer is calling about an overdue or delinquent balance</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT: Service suspended or disconnected for nonpayment
+<ul>
+<li>Customer reports service suspension or disconnect caused by unpaid billing</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_RESTORE_SERVICE_AFTER_PAYMENT: Restore service after payment
+<ul>
+<li>Customer has paid or plans to pay and wants service restored</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_COLLECTIONS_NOTICE_AGENCY_INQUIRY: Collections notice or agency inquiry
+<ul>
+<li>Customer asks about debt collection activity or a collection agency</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_CREDIT_REPORTING_CREDIT_SCORE_CONCERN: Credit reporting or credit score concern
+<ul>
+<li>Customer is concerned that billing or collections affected credit reporting</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>DUE_PAID_DEBT_STILL_IN_COLLECTIONS: Paid debt still in collections
+<ul>
+<li>Customer says a debt was paid but collections or credit reporting still shows it outstanding</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="credits-refunds-and-adjustments">Credits Refunds and Adjustments</h2>
+<ul>
+<li>CRD_GENERAL_CREDIT_REQUEST: General credit request
+<ul>
+<li>Customer asks for a bill or account credit without a more specific reason</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>CRD_GENERAL_REFUND_REQUEST: General refund request
+<ul>
+<li>Customer asks for money to be returned without a more specific refund issue</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT: Outage credit or bill adjustment
+<ul>
+<li>Customer requests a credit because service was unavailable or impaired</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>CRD_SERVICE_QUALITY_CREDIT: Service quality credit
+<ul>
+<li>Customer requests a credit for poor, slow, or unreliable service rather than a total outage</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>CRD_MISSING_CREDIT_ADJUSTMENT: Missing credit or adjustment
+<ul>
+<li>Customer was promised or expects a credit that is not reflected on the account</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>CRD_REFUND_NOT_RECEIVED_REFUND_STATUS: Refund not received or refund status
+<ul>
+<li>Customer expects a refund and wants its status because it has not arrived or posted</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>CRD_REFUND_METHOD_TIMING_INQUIRY: Refund method or timing inquiry
+<ul>
+<li>Customer asks how or when a refund will be issued</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>CRD_OVERPAYMENT_REFUND: Overpayment refund
+<ul>
+<li>Customer wants a refund of money paid above the amount owed</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>CRD_DEPOSIT_REFUND: Deposit refund
+<ul>
+<li>Customer asks about return of a security or service deposit</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="billing-delivery-account-and-preferences">Billing Delivery Account and Preferences</h2>
+<ul>
+<li>ACCT_BILL_COPY_STATEMENT_REQUEST: Bill copy or statement request
+<ul>
+<li>Customer needs a copy of a bill or statement</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ACCT_BILL_NOT_RECEIVED: Bill not received
+<ul>
+<li>Customer says an expected bill or statement was not received</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>ACCT_PAPERLESS_BILLING_GENERAL_INQUIRY: Paperless billing general inquiry
+<ul>
+<li>Customer asks about electronic or paperless billing</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ACCT_ENROLL_IN_PAPERLESS_BILLING: Enroll in paperless billing
+<ul>
+<li>Customer wants to stop paper statements and receive bills electronically</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ACCT_SWITCH_PAPER_BILLING: Switch to paper billing
+<ul>
+<li>Customer wants printed statements instead of paperless billing</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ACCT_BILLING_EMAIL_NOTIFICATION_ISSUE: Billing email or notification issue
+<ul>
+<li>Customer is not receiving billing emails or payment notifications</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION: Online account access or verification
+<ul>
+<li>Customer cannot access or verify the online account needed for billing</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ACCT_UPDATE_BILLING_ADDRESS: Update billing address
+<ul>
+<li>Customer wants to change the billing or mailing address</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>ACCT_UPDATE_BILLING_CONTACT_INFORMATION: Update billing contact information
+<ul>
+<li>Customer wants to change billing email, phone, or contact information</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="promotions-rewards-and-gift-cards">Promotions Rewards and Gift Cards</h2>
+<ul>
+<li>PROMO_GENERAL_REWARD_INQUIRY: General reward inquiry
+<ul>
+<li>Customer asks a general question about a reward or incentive</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED: Promotional gift card not received
+<ul>
+<li>Customer was promised a promotional gift card but has not received it</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PROMO_PROMOTIONAL_GIFT_CARD_STATUS: Promotional gift card status
+<ul>
+<li>Customer asks for the status of a promotional gift card</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>PROMO_GIFT_CARD_AMOUNT_VALUE_INQUIRY: Gift card amount or value inquiry
+<ul>
+<li>Customer asks how much a reward or promotional gift card should be worth</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>PROMO_PROMOTION_REWARD_ELIGIBILITY: Promotion or reward eligibility
+<ul>
+<li>Customer asks whether they qualify for a billing promotion, reward, or incentive</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>PROMO_PROMOTION_TERMS_FULFILLMENT_TIMING: Promotion terms or fulfillment timing
+<ul>
+<li>Customer asks about requirements or timing for receiving a promotion or reward</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="service-changes-equipment-and-final-billing">Service Changes Equipment and Final Billing</h2>
+<ul>
+<li>SVC_FINAL_BILL_AFTER_CANCELLATION: Final bill after cancellation
+<ul>
+<li>Customer asks about an expected closing or final bill after service ends</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>SVC_CANCEL_DISCONNECT_SERVICE_WITH_BILLING_IMPACT: Cancel or disconnect service with billing impact
+<ul>
+<li>Customer wants to cancel or disconnect and is asking about charges, balance, or final billing</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>SVC_REMOVE_SERVICE_CHARGE: Remove service or charge
+<ul>
+<li>Customer wants a billed service, feature, or associated recurring charge removed</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>SVC_VACATION_HOLD_BILLING: Vacation hold billing
+<ul>
+<li>Customer asks what they will be charged during a temporary vacation or seasonal service hold, or disputes billing during that hold</li>
+<li>Evidence: Observed Rare</li>
+</ul>
+</li>
+<li>SVC_RESUME_SERVICE_AFTER_VACATION_HOLD_BILLING: Resume service after vacation hold billing
+<ul>
+<li>Customer asks about billing when resuming service after a temporary hold</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_MOVE_TRANSFER_SERVICE_BILLING: Move or transfer service billing
+<ul>
+<li>Customer asks how moving service to another address affects billing, credits, deposits, or final and first bills</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_UPGRADE_DOWNGRADE_BILLING_IMPACT: Upgrade or downgrade billing impact
+<ul>
+<li>Customer asks how changing speed, technology, or plan affects the bill</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>SVC_ADD_SERVICE_FEATURE_BILLING_IMPACT: Add service or feature billing impact
+<ul>
+<li>Customer asks what adding another service or feature will do to the bill</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_CHANGE_EFFECTIVE_DATE_PRORATION: Change effective date or proration
+<ul>
+<li>Customer asks how the effective date of a service change affects prorated charges</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_CLOSED_ACCOUNT_BALANCE_FINAL_PAYMENT: Closed account balance or final payment
+<ul>
+<li>Customer asks what remains owed or refundable after the account is closed</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_MODEM_ROUTER_RENTAL_FEE: Modem or router rental fee
+<ul>
+<li>Customer asks about recurring rental charges for a modem, router, gateway, or similar equipment</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>SVC_EQUIPMENT_PURCHASE_OWNERSHIP_CHARGE: Equipment purchase or ownership charge
+<ul>
+<li>Customer asks about buying equipment, ownership, or a one time equipment charge</li>
+<li>Evidence: Observed</li>
+</ul>
+</li>
+<li>SVC_EQUIPMENT_RETURN_NONRETURN_CHARGE: Equipment return or nonreturn charge
+<ul>
+<li>Customer asks about a charge related to returning or failing to return equipment</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_INSTALLATION_ACTIVATION_CHARGE: Installation or activation charge
+<ul>
+<li>Customer asks about installation, activation, or setup charges</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_TECHNICIAN_VISIT_SERVICE_CALL_CHARGE: Technician visit or service call charge
+<ul>
+<li>Customer asks about a billed technician visit or service call fee</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_EQUIPMENT_SHIPPING_HANDLING_CHARGE: Equipment shipping or handling charge
+<ul>
+<li>Customer asks about shipping or handling fees for equipment</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+<li>SVC_REPLACEMENT_EQUIPMENT_CHARGE: Replacement equipment charge
+<ul>
+<li>Customer asks about a charge for replacement equipment</li>
+<li>Evidence: Coverage Expansion</li>
+</ul>
+</li>
+</ul>
+<h2 id="other-category">Other Category</h2>
+<ul>
+<li>OTHER_MISC_OTHER_BILLING: Misc or Other billing
+<ul>
+<li>The call is billing related but no defined subcategory fits adequately</li>
+<li>Evidence: Fallback</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

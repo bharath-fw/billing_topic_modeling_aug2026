@@ -1,0 +1,25 @@
+services:
+  taxonomy:
+    build: .
+    image: brightspeed-taxonomy:latest
+    container_name: brightspeed-taxonomy
+    volumes:
+      - ../data:/app/data
+      - ../pipeline:/app/pipeline
+      - ../artifacts:/app/artifacts
+      - ../input_output:/app/input_output
+      - ../output:/app/output
+      - models:/models
+    environment:
+      - HF_HOME=/models
+    command: ["--help"]
+    profiles: ["taxonomy"]
+
+  notebook:
+    extends: taxonomy
+    command: ["-m", "jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--allow-root", "--no-browser"]
+    ports:
+      - "8888:8888"
+
+volumes:
+  models:

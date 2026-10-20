@@ -1,0 +1,110 @@
+cell,row,col,prototype_count,mapped_evidence_count,dominant_tag,category,subcategory,prototype_purity
+0,0,0,20,0,RATE_BILL_HIGHER_THAN_EXPECTED,Rates Discounts and Recurring Charges,Bill higher than expected,0.5
+2,0,2,10,125,PAY_PAYMENT_DECLINED_FAILED,Payments and Payment Posting,Payment declined or failed,1.0
+3,0,3,10,296,AUTO_CONFIRM_AUTOPAY_ENROLLMENT,AutoPay and Payment Methods,Confirm AutoPay enrollment,1.0
+4,0,4,10,43,PAY_PAYMENT_CONFIRMATION_RECEIPT,Payments and Payment Posting,Payment confirmation or receipt,1.0
+5,0,5,10,0,BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION,Bill Understanding and Balance,Bill amount or line item explanation,1.0
+7,0,7,10,15,RATE_LOWER_PRICE_DISCOUNT_REQUEST,Rates Discounts and Recurring Charges,Lower price or discount request,1.0
+8,0,8,10,0,CRD_OVERPAYMENT_REFUND,Credits Refunds and Adjustments,Overpayment refund,1.0
+9,0,9,10,63,PAY_PAYMENT_HISTORY_TRANSACTION_DETAILS,Payments and Payment Posting,Payment history or transaction details,1.0
+11,0,11,20,678,ACCT_PAPERLESS_BILLING_GENERAL_INQUIRY,Billing Delivery Account and Preferences,Paperless billing general inquiry,0.5
+13,0,13,20,0,AUTO_UPDATE_REPLACE_PAYMENT_METHOD,AutoPay and Payment Methods,Update or replace payment method,0.5
+15,0,15,20,36,ACCT_UPDATE_BILLING_ADDRESS,Billing Delivery Account and Preferences,Update billing address,0.5
+16,1,0,10,16,DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment,1.0
+18,1,2,0,374,,,,0.0
+35,2,3,10,180,PAY_MAKE_ONE_TIME_PAYMENT,Payments and Payment Posting,Make a one time payment,1.0
+38,2,6,20,2128,BILL_PAYMENT_DUE_DATE,Bill Understanding and Balance,Payment due date,0.5
+40,2,8,10,318,BILL_CURRENT_ACCOUNT_BALANCE,Bill Understanding and Balance,Current account balance,1.0
+41,2,9,10,1,SVC_CLOSED_ACCOUNT_BALANCE_FINAL_PAYMENT,Service Changes Equipment and Final Billing,Closed account balance or final payment,1.0
+43,2,11,0,6,,,,0.0
+47,2,15,10,0,AUTO_CHANGE_AUTOPAY_PAYMENT_DATE,AutoPay and Payment Methods,Change AutoPay payment date,1.0
+48,3,0,20,0,DUE_CREDIT_REPORTING_CREDIT_SCORE_CONCERN,Payment Assistance Past Due and Collections,Credit reporting or credit score concern,0.5
+49,3,1,10,941,DUE_COLLECTIONS_NOTICE_AGENCY_INQUIRY,Payment Assistance Past Due and Collections,Collections notice or agency inquiry,1.0
+51,3,3,10,0,PAY_PARTIAL_PAYMENT,Payments and Payment Posting,Partial payment,1.0
+52,3,4,10,0,ACCT_BILLING_EMAIL_NOTIFICATION_ISSUE,Billing Delivery Account and Preferences,Billing email or notification issue,1.0
+53,3,5,0,249,,,,0.0
+58,3,10,10,52,ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION,Billing Delivery Account and Preferences,Online account access or verification,1.0
+59,3,11,0,1287,,,,0.0
+60,3,12,10,19,SVC_CANCEL_DISCONNECT_SERVICE_WITH_BILLING_IMPACT,Service Changes Equipment and Final Billing,Cancel or disconnect service with billing impact,1.0
+61,3,13,10,0,ACCT_ENROLL_IN_PAPERLESS_BILLING,Billing Delivery Account and Preferences,Enroll in paperless billing,1.0
+63,3,15,10,5,AUTO_AUTOPAY_PAYMENT_FAILURE,AutoPay and Payment Methods,AutoPay payment failure,1.0
+64,4,0,0,373,,,,0.0
+67,4,3,10,39,PAY_CHECK_MAILED_PAYMENT_STATUS,Payments and Payment Posting,Check or mailed payment status,1.0
+70,4,6,10,0,PAY_ONLINE_APP_PAYMENT_ISSUE,Payments and Payment Posting,Online or app payment issue,1.0
+71,4,7,10,0,DUE_MISSED_BROKEN_PAYMENT_ARRANGEMENT,Payment Assistance Past Due and Collections,Missed or broken payment arrangement,1.0
+72,4,8,10,0,DUE_PAYMENT_ARRANGEMENT_SYSTEM_ELIGIBILITY_ISSUE,Payment Assistance Past Due and Collections,Payment arrangement system or eligibility issue,1.0
+75,4,11,10,275,DUE_PAST_DUE_BALANCE_NONPAYMENT,Payment Assistance Past Due and Collections,Past due balance or nonpayment,1.0
+78,4,14,9,0,AUTO_REMOVE_AUTOPAY,AutoPay and Payment Methods,Remove AutoPay,1.0
+80,5,0,10,4349,CRD_SERVICE_QUALITY_CREDIT,Credits Refunds and Adjustments,Service quality credit,1.0
+84,5,4,0,18,,,,0.0
+85,5,5,20,12,DUE_PAYMENT_ARRANGEMENT_GENERAL_INQUIRY,Payment Assistance Past Due and Collections,Payment arrangement general inquiry,0.5
+89,5,9,10,324,AUTO_COMPROMISED_CARD_BANK_ACCOUNT,AutoPay and Payment Methods,Compromised card or bank account,1.0
+93,5,13,2,0,AUTO_ENROLL_IN_AUTOPAY,AutoPay and Payment Methods,Enroll in AutoPay,0.5
+94,5,14,9,5,AUTO_ENROLL_IN_AUTOPAY,AutoPay and Payment Methods,Enroll in AutoPay,1.0
+96,6,0,10,0,CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT,Credits Refunds and Adjustments,Outage credit or bill adjustment,1.0
+99,6,3,10,0,RATE_PLAN_PACKAGE_PRICE_INQUIRY,Rates Discounts and Recurring Charges,Plan or package price inquiry,1.0
+103,6,7,0,2,,,,0.0
+106,6,10,10,4023,ACCT_BILL_COPY_STATEMENT_REQUEST,Billing Delivery Account and Preferences,Bill copy or statement request,1.0
+107,6,11,10,0,BILL_FIRST_BILL_EXPLANATION,Bill Understanding and Balance,First bill explanation,1.0
+110,6,14,1,0,AUTO_AUTOPAY_GENERAL_INQUIRY,AutoPay and Payment Methods,AutoPay general inquiry,1.0
+111,6,15,9,0,AUTO_AUTOPAY_GENERAL_INQUIRY,AutoPay and Payment Methods,AutoPay general inquiry,1.0
+112,7,0,10,0,DUE_FINANCIAL_HARDSHIP_PAYMENT_ASSISTANCE,Payment Assistance Past Due and Collections,Financial hardship or payment assistance,1.0
+114,7,2,10,0,SVC_UPGRADE_DOWNGRADE_BILLING_IMPACT,Service Changes Equipment and Final Billing,Upgrade or downgrade billing impact,1.0
+115,7,3,0,2,,,,0.0
+116,7,4,10,0,RATE_PRICE_RATE_INCREASE,Rates Discounts and Recurring Charges,Price or rate increase,1.0
+119,7,7,20,0,SVC_VACATION_HOLD_BILLING,Service Changes Equipment and Final Billing,Vacation hold billing,0.5
+121,7,9,10,0,BILL_BILLING_CYCLE_STATEMENT_DATE,Bill Understanding and Balance,Billing cycle or statement date,1.0
+124,7,12,10,0,BILL_GENERAL_BILLING_QUESTION,Bill Understanding and Balance,General billing question,1.0
+125,7,13,0,7634,,,,0.0
+126,7,14,1,44108,PROMO_GENERAL_REWARD_INQUIRY,Promotions Rewards and Gift Cards,General reward inquiry,1.0
+127,7,15,9,10582,PROMO_GENERAL_REWARD_INQUIRY,Promotions Rewards and Gift Cards,General reward inquiry,1.0
+133,8,5,0,2,,,,0.0
+140,8,12,0,111,,,,0.0
+143,8,15,10,0,PROMO_PROMOTION_REWARD_ELIGIBILITY,Promotions Rewards and Gift Cards,Promotion or reward eligibility,1.0
+144,9,0,10,0,PAY_PAYMENT_REVERSED_RETURNED,Payments and Payment Posting,Payment reversed or returned,1.0
+147,9,3,10,0,SVC_MOVE_TRANSFER_SERVICE_BILLING,Service Changes Equipment and Final Billing,Move or transfer service billing,1.0
+149,9,5,10,0,CRD_DEPOSIT_REFUND,Credits Refunds and Adjustments,Deposit refund,1.0
+150,9,6,10,0,SVC_TECHNICIAN_VISIT_SERVICE_CALL_CHARGE,Service Changes Equipment and Final Billing,Technician visit or service call charge,1.0
+152,9,8,10,0,ERR_RECONNECTION_RESTORATION_FEE,Billing Errors Fees and Taxes,Reconnection or restoration fee,1.0
+153,9,9,10,2,ERR_RETURNED_PAYMENT_INSUFFICIENT_FUNDS_FEE,Billing Errors Fees and Taxes,Returned payment or insufficient funds fee,1.0
+156,9,12,10,494,PAY_GENERAL_PAYMENT_QUESTION,Payments and Payment Posting,General payment question,1.0
+157,9,13,10,0,CRD_GENERAL_CREDIT_REQUEST,Credits Refunds and Adjustments,General credit request,1.0
+159,9,15,10,0,PROMO_PROMOTION_TERMS_FULFILLMENT_TIMING,Promotions Rewards and Gift Cards,Promotion terms or fulfillment timing,1.0
+160,10,0,20,10,PAY_PAYMENT_NOT_POSTED,Payments and Payment Posting,Payment not posted,0.5
+163,10,3,10,0,SVC_FINAL_BILL_AFTER_CANCELLATION,Service Changes Equipment and Final Billing,Final bill after cancellation,1.0
+171,10,11,10,0,CRD_GENERAL_REFUND_REQUEST,Credits Refunds and Adjustments,General refund request,1.0
+179,11,3,10,4245,BILL_UPCOMING_ESTIMATED_BILL_AMOUNT,Bill Understanding and Balance,Upcoming or estimated bill amount,1.0
+181,11,5,10,0,SVC_ADD_SERVICE_FEATURE_BILLING_IMPACT,Service Changes Equipment and Final Billing,Add service or feature billing impact,1.0
+186,11,10,10,6443,CRD_REFUND_METHOD_TIMING_INQUIRY,Credits Refunds and Adjustments,Refund method or timing inquiry,1.0
+190,11,14,2,0,PROMO_PROMOTIONAL_GIFT_CARD_STATUS,Promotions Rewards and Gift Cards,Promotional gift card status,0.5
+191,11,15,18,4525,PROMO_PROMOTIONAL_GIFT_CARD_STATUS,Promotions Rewards and Gift Cards,Promotional gift card status,0.5
+192,12,0,10,0,RATE_PROMOTIONAL_RATE_EXPIRED,Rates Discounts and Recurring Charges,Promotional rate expired,1.0
+194,12,2,10,1923,ACCT_BILL_NOT_RECEIVED,Billing Delivery Account and Preferences,Bill not received,1.0
+197,12,5,10,0,SVC_REMOVE_SERVICE_CHARGE,Service Changes Equipment and Final Billing,Remove service or charge,1.0
+199,12,7,10,301,RATE_ADD_FEATURE_RECURRING_CHARGE,Rates Discounts and Recurring Charges,Add on or feature recurring charge,1.0
+200,12,8,10,0,RATE_RECURRING_CHARGE_INQUIRY,Rates Discounts and Recurring Charges,Recurring charge inquiry,1.0
+202,12,10,10,0,BILL_PRORATED_BILL_EXPLANATION,Bill Understanding and Balance,Prorated bill explanation,1.0
+204,12,12,10,3694,DUE_EXTEND_DUE_DATE_REQUEST_MORE_TIME,Payment Assistance Past Due and Collections,Extend due date or request more time,1.0
+206,12,14,1,0,PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED,Promotions Rewards and Gift Cards,Promotional gift card not received,1.0
+207,12,15,9,8,PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED,Promotions Rewards and Gift Cards,Promotional gift card not received,1.0
+208,13,0,20,0,ERR_DUPLICATE_CHARGE,Billing Errors Fees and Taxes,Duplicate charge,0.5
+212,13,4,10,0,ERR_INCORRECT_UNEXPECTED_CHARGE,Billing Errors Fees and Taxes,Incorrect or unexpected charge,1.0
+214,13,6,0,2787,,,,0.0
+217,13,9,10,1,SVC_MODEM_ROUTER_RENTAL_FEE,Service Changes Equipment and Final Billing,Modem or router rental fee,1.0
+219,13,11,10,0,SVC_CHANGE_EFFECTIVE_DATE_PRORATION,Service Changes Equipment and Final Billing,Change effective date or proration,1.0
+223,13,15,10,1658,CRD_MISSING_CREDIT_ADJUSTMENT,Credits Refunds and Adjustments,Missing credit or adjustment,1.0
+233,14,9,0,1,,,,0.0
+237,14,13,10,1967,ERR_TAX_RECOVERY_SURCHARGE,Billing Errors Fees and Taxes,Tax recovery surcharge,1.0
+240,15,0,20,1999,AUTO_AUTOPAY_CHARGED_WRONG_AMOUNT,AutoPay and Payment Methods,AutoPay charged wrong amount,0.5
+242,15,2,10,5,ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute,1.0
+243,15,3,10,2428,ERR_LATE_FEE_WAIVER_AVOIDANCE,Billing Errors Fees and Taxes,Late fee waiver or avoidance,1.0
+245,15,5,10,1,OTHER_MISC_OTHER_BILLING,Other Category,Misc or Other billing,1.0
+246,15,6,10,0,SVC_EQUIPMENT_RETURN_NONRETURN_CHARGE,Service Changes Equipment and Final Billing,Equipment return or nonreturn charge,1.0
+247,15,7,10,0,SVC_REPLACEMENT_EQUIPMENT_CHARGE,Service Changes Equipment and Final Billing,Replacement equipment charge,1.0
+248,15,8,10,0,SVC_EQUIPMENT_PURCHASE_OWNERSHIP_CHARGE,Service Changes Equipment and Final Billing,Equipment purchase or ownership charge,1.0
+249,15,9,10,0,SVC_EQUIPMENT_SHIPPING_HANDLING_CHARGE,Service Changes Equipment and Final Billing,Equipment shipping or handling charge,1.0
+250,15,10,10,0,SVC_INSTALLATION_ACTIVATION_CHARGE,Service Changes Equipment and Final Billing,Installation or activation charge,1.0
+251,15,11,10,215,ERR_TAX_REGULATORY_FEE_INQUIRY,Billing Errors Fees and Taxes,Tax or regulatory fee inquiry,1.0
+252,15,12,10,10,ERR_BILLING_AFTER_CANCELLATION_DISCONNECT,Billing Errors Fees and Taxes,Billing after cancellation or disconnect,1.0
+253,15,13,10,412,ERR_INCORRECT_TAX_FEE_AMOUNT,Billing Errors Fees and Taxes,Incorrect tax or fee amount,1.0
+255,15,15,20,16,RATE_MISSING_INCORRECT_DISCOUNT,Rates Discounts and Recurring Charges,Missing or incorrect discount,0.5
