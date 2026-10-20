@@ -14,6 +14,7 @@ datasets/
 code/data/
 *.parquet
 *.npy
+!code/artifacts/coverage_leaf_protos.npy
 *.npz
 *.h5
 *.pkl

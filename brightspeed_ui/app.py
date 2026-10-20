@@ -232,21 +232,43 @@ def worker(config_path):
         coverage.ARTIFACTS = root / 'code' / 'artifacts'
         tags = load_module(script_path(scripts, 'autotag'), 'bs_autotag')
         tags.DATA, tags.OUT = data, out
-        assets = root / 'code' / 'output'
         names = ('coverage_leaf_order.csv', 'coverage_leaf_protos.npy')
-        if all((assets / name).is_file() for name in names):
+        # Prefer frozen prototypes shipped in artifacts/ (or local output/), so
+        # tagging does not rebuild 104 leaves one encode() at a time.
+        proto_dirs = (
+            root / 'code' / 'artifacts',
+            root / 'code' / 'output',
+        )
+        proto_src = next(
+            (folder for folder in proto_dirs
+             if all((folder / name).is_file() for name in names)),
+            None,
+        )
+        if proto_src is not None:
+            print(f'using frozen taxonomy prototypes from {proto_src}', flush=True)
             for name in names:
-                shutil.copy2(assets / name, out / name)
+                shutil.copy2(proto_src / name, out / name)
         else:
             status(run, 'Building taxonomy prototypes', total_calls=total, billing_calls=count)
-            leaf = coverage.build_leaf_prototypes(coverage.build_leaf_prototype_texts(), device=cfg['device'])
+            print('frozen prototypes missing — building once with batched encode', flush=True)
+            coverage.get_embedder(cfg['device'])
+            leaf = coverage.build_leaf_prototypes(
+                coverage.build_leaf_prototype_texts(), device=cfg['device'],
+            )
             np.save(out / names[1], np.stack(leaf['prototype'].to_numpy()))
             leaf.drop(columns='prototype').to_csv(out / names[0], index=False)
+            # Persist for later runs on this host.
+            shared = root / 'code' / 'output'
+            shared.mkdir(parents=True, exist_ok=True)
+            for name in names:
+                shutil.copy2(out / name, shared / name)
         leaf = pd.read_csv(out / names[0])
         protos = np.load(out / names[1], allow_pickle=False)
         if protos.ndim != 2 or len(leaf) != len(protos) or len(leaf) < 3:
             raise ValueError('Invalid or mismatched taxonomy prototypes')
         status(run, 'Embedding and tagging calls', total_calls=total, billing_calls=count)
+        # Keep the embedding model loaded in this worker process before tagging.
+        coverage.get_embedder(cfg['device'])
         result = tags.run(limit=cfg['limit'] or None, device=cfg['device'])
         tagged = pd.read_parquet(result)
 
@@ -782,8 +804,11 @@ def render():
                 script_path(scripts, name)
             except FileNotFoundError as exc:
                 issues.append(str(exc))
-        assets = root / 'code' / 'output'
-        if not all((assets / n).exists() for n in ['coverage_leaf_order.csv', 'coverage_leaf_protos.npy']):
+        proto_ok = any(
+            all((folder / n).exists() for n in ['coverage_leaf_order.csv', 'coverage_leaf_protos.npy'])
+            for folder in (root / 'code' / 'artifacts', root / 'code' / 'output')
+        )
+        if not proto_ok:
             for n in ['taxonomy.json', 'curated_centroids_10_each.csv']:
                 if not (root / 'code' / 'artifacts' / n).exists():
                     issues.append(f'Missing taxonomy asset: {n}')

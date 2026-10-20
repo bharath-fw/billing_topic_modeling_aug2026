@@ -49,20 +49,48 @@ SEP = " <|sep|> "
 RANDOM_SEED = 42
 
 _model: SentenceTransformer | None = None
+_model_device: str | None = None
 
 
 def get_embedder(device: str | None = None) -> SentenceTransformer:
-    global _model
+    """Load BGE once per process and keep it warm for all encode calls."""
+    global _model, _model_device
+    want = device or "cpu"
     if _model is None:
-        _model = SentenceTransformer(EMBED_MODEL, device=device or "cpu")
+        print(f"loading embedding model {EMBED_MODEL} on {want} ...", flush=True)
+        _model = SentenceTransformer(EMBED_MODEL, device=want)
+        _model_device = want
+        # Warm-up so the first real batch is not dominated by lazy init.
+        _model.encode(["warmup"], batch_size=1, normalize_embeddings=True,
+                      convert_to_numpy=True, show_progress_bar=False)
+        print("embedding model ready", flush=True)
+    elif want != _model_device:
+        print(f"moving embedding model {_model_device} -> {want} ...", flush=True)
+        _model = _model.to(want)
+        _model_device = want
     return _model
 
 
-def embed(texts: list[str], batch_size: int = 128, device: str | None = None) -> np.ndarray:
+def embed(
+    texts: list[str],
+    batch_size: int | None = None,
+    device: str | None = None,
+    show_progress_bar: bool | None = None,
+) -> np.ndarray:
+    if not texts:
+        return np.zeros((0, 1024), dtype=np.float32)
     model = get_embedder(device)
+    # CPU VMs: moderate batches; GPU can take larger ones.
+    if batch_size is None:
+        batch_size = 32 if (device or _model_device or "cpu") == "cpu" else 128
+    if show_progress_bar is None:
+        show_progress_bar = len(texts) >= 32
     return model.encode(
-        texts, batch_size=batch_size, normalize_embeddings=True,
-        convert_to_numpy=True, show_progress_bar=True,
+        texts,
+        batch_size=batch_size,
+        normalize_embeddings=True,
+        convert_to_numpy=True,
+        show_progress_bar=show_progress_bar,
     ).astype(np.float32)
 
 
@@ -109,16 +137,34 @@ def build_leaf_prototype_texts() -> pd.DataFrame:
 
 
 def build_leaf_prototypes(prot_texts: pd.DataFrame, device=None) -> pd.DataFrame:
-    """Embed each leaf's prototype texts and average -> one vector per leaf."""
-    out = []
+    """Embed all leaf prototype texts in one batched pass, then mean-pool per leaf."""
+    all_texts: list[str] = []
+    spans: list[tuple[int, int]] = []
+    meta: list[dict] = []
     for _, leaf in prot_texts.iterrows():
-        vecs = embed(leaf["prototype_texts"], device=device)
-        proto = vecs.mean(axis=0)
-        proto = proto / np.linalg.norm(proto)
-        out.append({"canonical_tag": leaf["canonical_tag"],
-                    "category": leaf["category"],
-                    "subcategory": leaf["subcategory"],
-                    "prototype": proto.astype(np.float32)})
+        texts = list(leaf["prototype_texts"]) or [""]
+        start = len(all_texts)
+        all_texts.extend(texts)
+        spans.append((start, len(all_texts)))
+        meta.append({
+            "canonical_tag": leaf["canonical_tag"],
+            "category": leaf["category"],
+            "subcategory": leaf["subcategory"],
+        })
+
+    print(
+        f"embedding {len(all_texts):,} prototype texts for {len(meta)} leaves "
+        f"in one batched encode ...",
+        flush=True,
+    )
+    vecs = embed(all_texts, device=device, show_progress_bar=True)
+
+    out = []
+    for (start, end), info in zip(spans, meta):
+        proto = vecs[start:end].mean(axis=0)
+        norm = float(np.linalg.norm(proto)) or 1.0
+        proto = proto / norm
+        out.append({**info, "prototype": proto.astype(np.float32)})
     return pd.DataFrame(out)
 
 

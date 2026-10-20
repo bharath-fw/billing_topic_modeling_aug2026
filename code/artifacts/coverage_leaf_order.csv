@@ -1,0 +1,105 @@
+canonical_tag,category,subcategory
+BILL_GENERAL_BILLING_QUESTION,Bill Understanding and Balance,General billing question
+BILL_CURRENT_ACCOUNT_BALANCE,Bill Understanding and Balance,Current account balance
+BILL_PAYMENT_DUE_DATE,Bill Understanding and Balance,Payment due date
+BILL_BILL_AMOUNT_LINE_ITEM_EXPLANATION,Bill Understanding and Balance,Bill amount or line item explanation
+BILL_FIRST_BILL_EXPLANATION,Bill Understanding and Balance,First bill explanation
+BILL_PRORATED_BILL_EXPLANATION,Bill Understanding and Balance,Prorated bill explanation
+BILL_BILLING_CYCLE_STATEMENT_DATE,Bill Understanding and Balance,Billing cycle or statement date
+BILL_UPCOMING_ESTIMATED_BILL_AMOUNT,Bill Understanding and Balance,Upcoming or estimated bill amount
+RATE_BILL_HIGHER_THAN_EXPECTED,Rates Discounts and Recurring Charges,Bill higher than expected
+RATE_PRICE_RATE_INCREASE,Rates Discounts and Recurring Charges,Price or rate increase
+RATE_PROMOTIONAL_RATE_EXPIRED,Rates Discounts and Recurring Charges,Promotional rate expired
+RATE_MISSING_INCORRECT_DISCOUNT,Rates Discounts and Recurring Charges,Missing or incorrect discount
+RATE_LOWER_PRICE_DISCOUNT_REQUEST,Rates Discounts and Recurring Charges,Lower price or discount request
+RATE_PLAN_PACKAGE_PRICE_INQUIRY,Rates Discounts and Recurring Charges,Plan or package price inquiry
+RATE_RECURRING_CHARGE_INQUIRY,Rates Discounts and Recurring Charges,Recurring charge inquiry
+RATE_ADD_FEATURE_RECURRING_CHARGE,Rates Discounts and Recurring Charges,Add on or feature recurring charge
+ERR_INCORRECT_UNEXPECTED_CHARGE,Billing Errors Fees and Taxes,Incorrect or unexpected charge
+ERR_DUPLICATE_CHARGE,Billing Errors Fees and Taxes,Duplicate charge
+ERR_UNAUTHORIZED_BILLING_CHARGE,Billing Errors Fees and Taxes,Unauthorized billing charge
+ERR_BILLING_AFTER_CANCELLATION_DISCONNECT,Billing Errors Fees and Taxes,Billing after cancellation or disconnect
+ERR_LATE_FEE_DISPUTE,Billing Errors Fees and Taxes,Late fee dispute
+ERR_LATE_FEE_WAIVER_AVOIDANCE,Billing Errors Fees and Taxes,Late fee waiver or avoidance
+ERR_RETURNED_PAYMENT_INSUFFICIENT_FUNDS_FEE,Billing Errors Fees and Taxes,Returned payment or insufficient funds fee
+ERR_RECONNECTION_RESTORATION_FEE,Billing Errors Fees and Taxes,Reconnection or restoration fee
+ERR_TAX_REGULATORY_FEE_INQUIRY,Billing Errors Fees and Taxes,Tax or regulatory fee inquiry
+ERR_TAX_RECOVERY_SURCHARGE,Billing Errors Fees and Taxes,Tax recovery surcharge
+ERR_INCORRECT_TAX_FEE_AMOUNT,Billing Errors Fees and Taxes,Incorrect tax or fee amount
+PAY_MAKE_ONE_TIME_PAYMENT,Payments and Payment Posting,Make a one time payment
+PAY_GENERAL_PAYMENT_QUESTION,Payments and Payment Posting,General payment question
+PAY_ONLINE_APP_PAYMENT_ISSUE,Payments and Payment Posting,Online or app payment issue
+PAY_PAYMENT_DECLINED_FAILED,Payments and Payment Posting,Payment declined or failed
+PAY_PAYMENT_NOT_POSTED,Payments and Payment Posting,Payment not posted
+PAY_PAYMENT_APPLIED_WRONG_ACCOUNT,Payments and Payment Posting,Payment applied to wrong account
+PAY_PAYMENT_CONFIRMATION_RECEIPT,Payments and Payment Posting,Payment confirmation or receipt
+PAY_PAYMENT_REVERSED_RETURNED,Payments and Payment Posting,Payment reversed or returned
+PAY_DUPLICATE_PAYMENT,Payments and Payment Posting,Duplicate payment
+PAY_PARTIAL_PAYMENT,Payments and Payment Posting,Partial payment
+PAY_CHECK_MAILED_PAYMENT_STATUS,Payments and Payment Posting,Check or mailed payment status
+PAY_PAYMENT_HISTORY_TRANSACTION_DETAILS,Payments and Payment Posting,Payment history or transaction details
+AUTO_AUTOPAY_GENERAL_INQUIRY,AutoPay and Payment Methods,AutoPay general inquiry
+AUTO_ENROLL_IN_AUTOPAY,AutoPay and Payment Methods,Enroll in AutoPay
+AUTO_CONFIRM_AUTOPAY_ENROLLMENT,AutoPay and Payment Methods,Confirm AutoPay enrollment
+AUTO_REMOVE_AUTOPAY,AutoPay and Payment Methods,Remove AutoPay
+AUTO_AUTOPAY_PAYMENT_FAILURE,AutoPay and Payment Methods,AutoPay payment failure
+AUTO_AUTOPAY_CHARGED_WRONG_AMOUNT,AutoPay and Payment Methods,AutoPay charged wrong amount
+AUTO_DUPLICATE_AUTOPAY_WITHDRAWAL,AutoPay and Payment Methods,Duplicate AutoPay withdrawal
+AUTO_CHANGE_AUTOPAY_PAYMENT_DATE,AutoPay and Payment Methods,Change AutoPay payment date
+AUTO_UPDATE_REPLACE_PAYMENT_METHOD,AutoPay and Payment Methods,Update or replace payment method
+AUTO_UPDATE_AUTOPAY_PAYMENT_METHOD,AutoPay and Payment Methods,Update AutoPay payment method
+AUTO_COMPROMISED_CARD_BANK_ACCOUNT,AutoPay and Payment Methods,Compromised card or bank account
+DUE_PAYMENT_ARRANGEMENT_GENERAL_INQUIRY,Payment Assistance Past Due and Collections,Payment arrangement general inquiry
+DUE_SET_UP_PAYMENT_ARRANGEMENT,Payment Assistance Past Due and Collections,Set up payment arrangement
+DUE_EXTEND_DUE_DATE_REQUEST_MORE_TIME,Payment Assistance Past Due and Collections,Extend due date or request more time
+DUE_PAYMENT_ARRANGEMENT_SYSTEM_ELIGIBILITY_ISSUE,Payment Assistance Past Due and Collections,Payment arrangement system or eligibility issue
+DUE_MISSED_BROKEN_PAYMENT_ARRANGEMENT,Payment Assistance Past Due and Collections,Missed or broken payment arrangement
+DUE_FINANCIAL_HARDSHIP_PAYMENT_ASSISTANCE,Payment Assistance Past Due and Collections,Financial hardship or payment assistance
+DUE_PAST_DUE_BALANCE_NONPAYMENT,Payment Assistance Past Due and Collections,Past due balance or nonpayment
+DUE_SERVICE_SUSPENDED_DISCONNECTED_NONPAYMENT,Payment Assistance Past Due and Collections,Service suspended or disconnected for nonpayment
+DUE_RESTORE_SERVICE_AFTER_PAYMENT,Payment Assistance Past Due and Collections,Restore service after payment
+DUE_COLLECTIONS_NOTICE_AGENCY_INQUIRY,Payment Assistance Past Due and Collections,Collections notice or agency inquiry
+DUE_CREDIT_REPORTING_CREDIT_SCORE_CONCERN,Payment Assistance Past Due and Collections,Credit reporting or credit score concern
+DUE_PAID_DEBT_STILL_IN_COLLECTIONS,Payment Assistance Past Due and Collections,Paid debt still in collections
+CRD_GENERAL_CREDIT_REQUEST,Credits Refunds and Adjustments,General credit request
+CRD_GENERAL_REFUND_REQUEST,Credits Refunds and Adjustments,General refund request
+CRD_OUTAGE_CREDIT_BILL_ADJUSTMENT,Credits Refunds and Adjustments,Outage credit or bill adjustment
+CRD_SERVICE_QUALITY_CREDIT,Credits Refunds and Adjustments,Service quality credit
+CRD_MISSING_CREDIT_ADJUSTMENT,Credits Refunds and Adjustments,Missing credit or adjustment
+CRD_REFUND_NOT_RECEIVED_REFUND_STATUS,Credits Refunds and Adjustments,Refund not received or refund status
+CRD_REFUND_METHOD_TIMING_INQUIRY,Credits Refunds and Adjustments,Refund method or timing inquiry
+CRD_OVERPAYMENT_REFUND,Credits Refunds and Adjustments,Overpayment refund
+CRD_DEPOSIT_REFUND,Credits Refunds and Adjustments,Deposit refund
+ACCT_BILL_COPY_STATEMENT_REQUEST,Billing Delivery Account and Preferences,Bill copy or statement request
+ACCT_BILL_NOT_RECEIVED,Billing Delivery Account and Preferences,Bill not received
+ACCT_PAPERLESS_BILLING_GENERAL_INQUIRY,Billing Delivery Account and Preferences,Paperless billing general inquiry
+ACCT_ENROLL_IN_PAPERLESS_BILLING,Billing Delivery Account and Preferences,Enroll in paperless billing
+ACCT_SWITCH_PAPER_BILLING,Billing Delivery Account and Preferences,Switch to paper billing
+ACCT_BILLING_EMAIL_NOTIFICATION_ISSUE,Billing Delivery Account and Preferences,Billing email or notification issue
+ACCT_ONLINE_ACCOUNT_ACCESS_VERIFICATION,Billing Delivery Account and Preferences,Online account access or verification
+ACCT_UPDATE_BILLING_ADDRESS,Billing Delivery Account and Preferences,Update billing address
+ACCT_UPDATE_BILLING_CONTACT_INFORMATION,Billing Delivery Account and Preferences,Update billing contact information
+PROMO_GENERAL_REWARD_INQUIRY,Promotions Rewards and Gift Cards,General reward inquiry
+PROMO_PROMOTIONAL_GIFT_CARD_NOT_RECEIVED,Promotions Rewards and Gift Cards,Promotional gift card not received
+PROMO_PROMOTIONAL_GIFT_CARD_STATUS,Promotions Rewards and Gift Cards,Promotional gift card status
+PROMO_GIFT_CARD_AMOUNT_VALUE_INQUIRY,Promotions Rewards and Gift Cards,Gift card amount or value inquiry
+PROMO_PROMOTION_REWARD_ELIGIBILITY,Promotions Rewards and Gift Cards,Promotion or reward eligibility
+PROMO_PROMOTION_TERMS_FULFILLMENT_TIMING,Promotions Rewards and Gift Cards,Promotion terms or fulfillment timing
+SVC_FINAL_BILL_AFTER_CANCELLATION,Service Changes Equipment and Final Billing,Final bill after cancellation
+SVC_CANCEL_DISCONNECT_SERVICE_WITH_BILLING_IMPACT,Service Changes Equipment and Final Billing,Cancel or disconnect service with billing impact
+SVC_REMOVE_SERVICE_CHARGE,Service Changes Equipment and Final Billing,Remove service or charge
+SVC_VACATION_HOLD_BILLING,Service Changes Equipment and Final Billing,Vacation hold billing
+SVC_RESUME_SERVICE_AFTER_VACATION_HOLD_BILLING,Service Changes Equipment and Final Billing,Resume service after vacation hold billing
+SVC_MOVE_TRANSFER_SERVICE_BILLING,Service Changes Equipment and Final Billing,Move or transfer service billing
+SVC_UPGRADE_DOWNGRADE_BILLING_IMPACT,Service Changes Equipment and Final Billing,Upgrade or downgrade billing impact
+SVC_ADD_SERVICE_FEATURE_BILLING_IMPACT,Service Changes Equipment and Final Billing,Add service or feature billing impact
+SVC_CHANGE_EFFECTIVE_DATE_PRORATION,Service Changes Equipment and Final Billing,Change effective date or proration
+SVC_CLOSED_ACCOUNT_BALANCE_FINAL_PAYMENT,Service Changes Equipment and Final Billing,Closed account balance or final payment
+SVC_MODEM_ROUTER_RENTAL_FEE,Service Changes Equipment and Final Billing,Modem or router rental fee
+SVC_EQUIPMENT_PURCHASE_OWNERSHIP_CHARGE,Service Changes Equipment and Final Billing,Equipment purchase or ownership charge
+SVC_EQUIPMENT_RETURN_NONRETURN_CHARGE,Service Changes Equipment and Final Billing,Equipment return or nonreturn charge
+SVC_INSTALLATION_ACTIVATION_CHARGE,Service Changes Equipment and Final Billing,Installation or activation charge
+SVC_TECHNICIAN_VISIT_SERVICE_CALL_CHARGE,Service Changes Equipment and Final Billing,Technician visit or service call charge
+SVC_EQUIPMENT_SHIPPING_HANDLING_CHARGE,Service Changes Equipment and Final Billing,Equipment shipping or handling charge
+SVC_REPLACEMENT_EQUIPMENT_CHARGE,Service Changes Equipment and Final Billing,Replacement equipment charge
+OTHER_MISC_OTHER_BILLING,Other Category,Misc or Other billing
