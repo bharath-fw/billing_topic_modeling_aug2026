@@ -54,3 +54,11 @@ The UI resolves the project via `PROJECT_ROOT=/app`.
 - First tagging run downloads `BAAI/bge-large-en-v1.5` into the `hf_models` volume (can take several minutes on CPU).
 - Prefer the `testdata/` extracts on a VM; full monthly dumps are multi‑hundred MB each.
 - Ensure the VM has enough RAM for embedding/tagging (several GB recommended even for small batches).
+- If you see `PermissionError` on `ui_runs` / `datasets` / `code/output`, fix host ownership then restart:
+
+```bash
+sudo chown -R 1000:1000 brightspeed_ui/ui_runs code/output datasets
+docker compose restart ui
+```
+
+  (Or rebuild after pulling — the image runs as root so bind mounts stay writable.)

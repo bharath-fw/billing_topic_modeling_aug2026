@@ -35,11 +35,9 @@ COPY code/pipeline /app/code/pipeline
 COPY code/artifacts /app/code/artifacts
 COPY code/docker/requirements.txt /app/code/docker/requirements.txt
 
-RUN mkdir -p /app/datasets /app/code/output /app/brightspeed_ui/ui_runs /models \
-    && useradd --create-home --uid 1000 appuser \
-    && chown -R appuser:appuser /app /models
-
-USER appuser
+# Run as root so bind-mounted host dirs (datasets, ui_runs, output) are
+# writable regardless of host UID — typical for single-tenant VM deploys.
+RUN mkdir -p /app/datasets /app/code/output /app/brightspeed_ui/ui_runs /models
 
 EXPOSE 8501
 
