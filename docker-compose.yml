@@ -1,0 +1,73 @@
+# Brightspeed Call Analytics — CPU Docker Compose (Google VM / default)
+#
+#   mkdir -p datasets && cp testdata/*.xlsx datasets/
+#   docker compose up --build -d
+#
+# Open: http://localhost:${UI_PORT:-8501}
+#
+# Optional GPU (local machines with NVIDIA toolkit):
+#   docker compose --profile gpu up --build -d ui-gpu
+
+x-ui-common: &ui-common
+  ports:
+    - "${UI_PORT:-8501}:8501"
+  environment: &ui-env
+    PROJECT_ROOT: /app
+    UI_RUNS_DIR: /app/brightspeed_ui/ui_runs
+    HF_HOME: /models
+    TRANSFORMERS_CACHE: /models
+    SENTENCE_TRANSFORMERS_HOME: /models
+  volumes:
+    - ./datasets:/app/datasets
+    - ./code/pipeline:/app/code/pipeline
+    - ./code/artifacts:/app/code/artifacts
+    - ./code/output:/app/code/output
+    - ./brightspeed_ui/app.py:/app/brightspeed_ui/app.py
+    - ./brightspeed_ui/.streamlit:/app/brightspeed_ui/.streamlit
+    - ./brightspeed_ui/ui_runs:/app/brightspeed_ui/ui_runs
+    - hf_models:/models
+  restart: unless-stopped
+
+services:
+  ui:
+    <<: *ui-common
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TORCH_INDEX: https://download.pytorch.org/whl/cpu
+    image: brightspeed-billing-ui:cpu
+    container_name: brightspeed-billing-ui
+
+  ui-gpu:
+    <<: *ui-common
+    profiles: ["gpu"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TORCH_INDEX: https://download.pytorch.org/whl/cu124
+    image: brightspeed-billing-ui:gpu
+    container_name: brightspeed-billing-ui-gpu
+    gpus: all
+    environment:
+      <<: *ui-env
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+
+  taxonomy:
+    image: brightspeed-billing-ui:cpu
+    profiles: ["cli"]
+    working_dir: /app
+    environment:
+      PROJECT_ROOT: /app
+      HF_HOME: /models
+    volumes:
+      - ./datasets:/app/datasets
+      - ./code:/app/code
+      - hf_models:/models
+    entrypoint: ["python"]
+    command: ["code/pipeline/ingest.py", "--help"]
+
+volumes:
+  hf_models:

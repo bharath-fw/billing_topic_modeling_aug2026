@@ -5,6 +5,10 @@ datasets/
 *.csv
 !code/artifacts/**/*.csv
 !code/input_output/taxonomy_keywords.csv
+# Small committed September test extracts for VM / smoke tests
+!testdata/
+!testdata/**/*.xlsx
+!testdata/**/*.md
 
 # Intermediate / model artifacts
 code/data/

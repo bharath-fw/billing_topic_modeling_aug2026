@@ -18,7 +18,17 @@ import hashlib
 HERE = Path(__file__).resolve().parent
 
 
-
+def resolve_project_root() -> Path:
+    """Repo root with ``datasets/`` + ``code/pipeline`` (Docker sets PROJECT_ROOT)."""
+    env = os.environ.get('PROJECT_ROOT', '').strip()
+    if env:
+        return Path(env).resolve()
+    parent = HERE.parent
+    if (parent / 'datasets').is_dir() and (parent / 'code' / 'pipeline').is_dir():
+        return parent.resolve()
+    if (HERE / 'datasets').is_dir() and (HERE / 'code' / 'pipeline').is_dir():
+        return HERE
+    return parent.resolve()
 
 
 FILTER_COLUMNS = [
@@ -564,12 +574,15 @@ def render():
     # Hide the Streamlit menu containing Print. Browser Ctrl+P is unaffected.
     st.markdown('<style>#MainMenu {visibility: hidden;}</style>', unsafe_allow_html=True)
     st.title('Brightspeed Call Analytics')
-    root = HERE
+    root = resolve_project_root()
     scripts = root / 'code' / 'pipeline'
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    
     datasets = root / 'datasets'
-    
+    runs = Path(os.environ.get('UI_RUNS_DIR', str(HERE / 'ui_runs'))).resolve()
+    st.caption(
+        f'Project root: `{root}` · Pipeline: `{scripts}` · '
+        f'Datasets: `{datasets}` · Device: **{device}**'
+    )
     tabs = st.tabs(['Analyze calls', 'Filters', 'Results'])
 
     with tabs[1]:
@@ -676,7 +689,6 @@ def render():
                 finally:
                     tmp.unlink(missing_ok=True)
     files = sorted(p.name for p in datasets.glob('*.xlsx') if not p.name.startswith(('~$', '.')))
-    runs = root / 'ui_runs'
     with tabs[0]:
         st.info('Choose call types and column filters in the Filters tab before starting analysis.')
         mode = st.radio('Dataset scope', ['Monthly', 'Custom selection', 'Full dataset'], horizontal=True)
